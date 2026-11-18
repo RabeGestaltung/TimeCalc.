@@ -1,170 +1,2127 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projekt-Tool</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Zeitprotokoll" />
+<meta name="theme-color" content="#F3F4F6" />
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAFF0lEQVR4nO3dXW7UMBSGYRexAFbVBXShXQCrqgTimgujMOr0m3F+7PMd+32ukUhO3tjpUCYvv37/KcBXvkUfAHwRByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgD0vfoAwjz8f7a/od/vP3sdyS2Xhb5CoZdKbRYIZeZ47g8CGXWUCaMY1gT9yarZKo4ArO4NU0iM8Rh0sS97JXkjsM2i1t5E8kaR4osbmVMJOWHYOnKKDmPOdnKkXHEnyRaQjLFcW0Zuy5S4F8dKEccl1ybCy+J2/F0kiCOk1ei6zVwPrbz3OM4PP3Bc89ynLv4xpFx3BmP+QHTOA5M2Wq+2Y+/cvycY4LJHjgew5/S7VaOvTNyy+KT1KfjFcesv52V9LyMtpWkE2wR+IHbGS5xTFxGlbEPi22lfRYZs/gk0cm6rBwtwod1iURnER9H452UaKZPNZ5L+OYSHMeCZVQp+oiMY9kyKv8+4reVx2YtozI/u7A4Wm4I89ldouUcoxaPmB9lrcp4fDBjDsNqIBv3bQWBAuLwvEtieW4uo+OgDMWwD7ttZc0yKrdzHxpH+Ed+Exg5Q6+Vw+3WGc9qAuPiYNm4yrBJGq0cVjdNIJ85uMThMxEHJtMYFAd7yrXGzNNl5YChEXE8zdxkFbXydCYDFg9WDkjxcbBsKOGT6R4Hj6L99J5t/MoBW8FxhK+c5mLnw8oBqW8cPHD01nXCkSsHe0qLwCmxrUAiDkjEAYk4IHWMw+E/C83h8az6/cDCygGJOCARByTigEQckIgDEnFAIg5IxPHEx/vrsr948D36AOLdfv6oOvh4f13wI11Wjv8erxALrh/EscNqfRDHP40XfqlHEOL4J+MrL3rr+z2kGf/V3vCVF1FjZOX4rH3W068fxPGFXX1MnAhxfI1HkEIcD/x4+7n4FpPgfSuxwvuY9n0rnj+P7OX8CNJ1wmwrTdZ8BMnxjjcHIY8g677jLaPwR5CRuscxx2PHLZ9HkN6zjV85Mt5hYx5BwicTH0dS7Y8gedfOEXE4fN9qJ/0uvMM3+7JynPX4IuVdNsqwOFLP6Cl1dv3Oesw8XVaOvDtLdf8Icub6mUzDJY5iM5EzLrmhfeYwLo65d5ZNPc2uJztskkYrR3G6ac6YYEOphsaxyOLR1cgZeq0cxezWGczt3EfHYfhSbhOGL3IPWDno455hGcVwW4GPmDhYPG55LhslcOWgj8q2jOK/rczdh/nZJXjfivkED2s8r3Xft7JsH/5llPA4ypJ9pCijOMTRbo4+Ep1F3+/naLdrZOG31DHpztFl5Zj+v5SlK6P4xFGm7iNjGcVnW9nsveo+o/xS6tOxi6McWhWsZlpNcBZG28rmwIzcdpkJyiieK0d1+HoHTjnjMT/gG0eVZdxZjnMX9zjK6S2j6/Sdj+28BHGUix4pLrwSbsfTSY44qmufOgM/VvHPosoUR/H7qeSALGWUdHFUSRNJlEXl+DnHU+mmXHIec8qVY5NiCcmYRZU7jso2kbxZVDPEsTGpJHsTm6niqAITmSaLasI4NsMqmayJzcxx3Lo8lFmDuLVKHPeS/nbWSOvGgadSfgiGMYgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IfwECZUvbNO0rEQAAAABJRU5ErkJggg==" />
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAFF0lEQVR4nO3dXW7UMBSGYRexAFbVBXShXQCrqgTimgujMOr0m3F+7PMd+32ukUhO3tjpUCYvv37/KcBXvkUfAHwRByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgD0vfoAwjz8f7a/od/vP3sdyS2Xhb5CoZdKbRYIZeZ47g8CGXWUCaMY1gT9yarZKo4ArO4NU0iM8Rh0sS97JXkjsM2i1t5E8kaR4osbmVMJOWHYOnKKDmPOdnKkXHEnyRaQjLFcW0Zuy5S4F8dKEccl1ybCy+J2/F0kiCOk1ei6zVwPrbz3OM4PP3Bc89ynLv4xpFx3BmP+QHTOA5M2Wq+2Y+/cvycY4LJHjgew5/S7VaOvTNyy+KT1KfjFcesv52V9LyMtpWkE2wR+IHbGS5xTFxGlbEPi22lfRYZs/gk0cm6rBwtwod1iURnER9H452UaKZPNZ5L+OYSHMeCZVQp+oiMY9kyKv8+4reVx2YtozI/u7A4Wm4I89ldouUcoxaPmB9lrcp4fDBjDsNqIBv3bQWBAuLwvEtieW4uo+OgDMWwD7ttZc0yKrdzHxpH+Ed+Exg5Q6+Vw+3WGc9qAuPiYNm4yrBJGq0cVjdNIJ85uMThMxEHJtMYFAd7yrXGzNNl5YChEXE8zdxkFbXydCYDFg9WDkjxcbBsKOGT6R4Hj6L99J5t/MoBW8FxhK+c5mLnw8oBqW8cPHD01nXCkSsHe0qLwCmxrUAiDkjEAYk4IHWMw+E/C83h8az6/cDCygGJOCARByTigEQckIgDEnFAIg5IxPHEx/vrsr948D36AOLdfv6oOvh4f13wI11Wjv8erxALrh/EscNqfRDHP40XfqlHEOL4J+MrL3rr+z2kGf/V3vCVF1FjZOX4rH3W068fxPGFXX1MnAhxfI1HkEIcD/x4+7n4FpPgfSuxwvuY9n0rnj+P7OX8CNJ1wmwrTdZ8BMnxjjcHIY8g677jLaPwR5CRuscxx2PHLZ9HkN6zjV85Mt5hYx5BwicTH0dS7Y8gedfOEXE4fN9qJ/0uvMM3+7JynPX4IuVdNsqwOFLP6Cl1dv3Oesw8XVaOvDtLdf8Icub6mUzDJY5iM5EzLrmhfeYwLo65d5ZNPc2uJztskkYrR3G6ac6YYEOphsaxyOLR1cgZeq0cxezWGczt3EfHYfhSbhOGL3IPWDno455hGcVwW4GPmDhYPG55LhslcOWgj8q2jOK/rczdh/nZJXjfivkED2s8r3Xft7JsH/5llPA4ypJ9pCijOMTRbo4+Ep1F3+/naLdrZOG31DHpztFl5Zj+v5SlK6P4xFGm7iNjGcVnW9nsveo+o/xS6tOxi6McWhWsZlpNcBZG28rmwIzcdpkJyiieK0d1+HoHTjnjMT/gG0eVZdxZjnMX9zjK6S2j6/Sdj+28BHGUix4pLrwSbsfTSY44qmufOgM/VvHPosoUR/H7qeSALGWUdHFUSRNJlEXl+DnHU+mmXHIec8qVY5NiCcmYRZU7jso2kbxZVDPEsTGpJHsTm6niqAITmSaLasI4NsMqmayJzcxx3Lo8lFmDuLVKHPeS/nbWSOvGgadSfgiGMYgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IxAGJOCARByTigEQckIgDEnFAIg5IfwECZUvbNO0rEQAAAABJRU5ErkJggg==" />
+<title>Zeitprotokoll</title>
+<style>
+  :root {
+    --bg: #F3F4F6; --card: #FFFFFF; --line: #E5E7EB; --line2: #D1D5DB;
+    --ink: #1C1F24; --muted: #6B7280; --soft: #EEF0F3;
+    --amber: #E3A23C; --red: #E2665A; --red2: #D9483B; --green: #3FA35E;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+  body { min-height: 100vh; padding-top: env(safe-area-inset-top, 0px); }
+  button, input, select, textarea { font-family: inherit; }
+  .mono { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+  .app { max-width: 560px; margin: 0 auto; padding: 0 20px 170px; }
 
-  <style>
-    body{
-      margin:0;
-      padding:0;
-      background:#f5f5f7;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-      color:#111;
-    }
+  .topbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 12px 0; background: var(--bg); }
+  .icon-btn { width: 42px; height: 42px; border-radius: 50%; border: none; background: var(--card); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .topbar-brand { font-size: 14px; font-weight: 600; letter-spacing: .02em; }
+  .topbar-spacer { width: 42px; }
+  .topbar { position: sticky; }
+  .topbar-brand { transition: opacity .2s; }
+  .topbar.searching .topbar-brand { opacity: 0; }
+  .sbox { position: absolute; left: 54px; top: 50%; transform: translateY(-50%); height: 42px; width: 42px; display: flex; align-items: center; justify-content: flex-end; border-radius: 21px; background: transparent; overflow: hidden; transition: width .25s ease, background .25s ease; z-index: 2; }
+  .sbox.open { width: calc(100% - 108px); }
+  .sbox input { flex: 1; min-width: 0; width: 0; height: 100%; border: none; outline: none; background: transparent; font-size: 16px; color: var(--ink); padding: 0 0 0 14px; opacity: 0; transition: opacity .2s; }
+  .sbox.open input { opacity: 1; }
+  .sbox .s-btn { width: 42px; height: 42px; flex-shrink: 0; border: none; background: var(--card); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 50%; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .sbox.open { background: var(--card); box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+  .sbox.open .s-btn { background: transparent; box-shadow: none; }
+  .sr { display: flex; align-items: center; gap: 12px; padding: 12px 14px; cursor: pointer; }
+  .sr .sr-main { flex: 1; min-width: 0; }
+  .sr .sr-title { font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sr .sr-sub { font-size: 12px; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-    .app{
-      max-width:900px;
-      margin:20px auto;
-      padding:16px;
-    }
+  h1 { font-size: 30px; font-weight: 700; letter-spacing: -.02em; margin: 8px 0 2px; }
+  .sub { color: var(--muted); font-size: 14px; margin: 0 0 22px; }
+  .hint { font-size: 12px; color: var(--muted); margin: -10px 0 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; width: 100%; text-align: left; color: var(--ink); }
+  .gh { cursor: default; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
 
-    .header{
-      margin-bottom:20px;
-    }
+  .timer-card { padding: 22px; margin-bottom: 28px; border-left: 4px solid var(--line2); }
+  .timer-card.running { border-left-color: var(--amber); }
+  .status { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 8px; }
+  .timer-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+  .running-label { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
+  .pulse { animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+  @media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
+  .timer-big { font-size: 52px; line-height: 1; letter-spacing: -.02em; }
+  .btn-start { display: flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 10px; border: none; font-weight: 600; font-size: 14px; cursor: pointer; background: var(--amber); color: #1C1F24; }
+  .btn-stop { background: var(--red); color: #fff; }
 
-    .header h1{
-      margin:0 0 4px;
-      font-size:24px;
-    }
+  .pill-select { appearance: none; -webkit-appearance: none; max-width: 100%; font-size: 14px; color: var(--ink); background-color: var(--card); border: 1px solid var(--line2); border-radius: 10px; padding: 9px 32px 9px 12px; cursor: pointer; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 17px) 52%, calc(100% - 12px) 52%; background-size: 5px 5px; background-repeat: no-repeat; }
 
-    .header p{
-      margin:0;
-      color:#666;
-    }
+  .sec { display: flex; justify-content: space-between; align-items: baseline; margin: 24px 0 12px; }
+  .sec:first-child { margin-top: 0; }
+  .sec h2 { font-size: 18px; font-weight: 700; margin: 0; }
+  .sec span { font-size: 13px; color: var(--muted); }
+  .list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px; }
+  .empty { border: 1px dashed var(--line2); border-radius: 14px; padding: 30px 16px; text-align: center; color: var(--muted); font-size: 14px; background: var(--card); }
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:16px;
-    }
+  .entry { display: flex; align-items: center; gap: 12px; padding: 12px 14px; cursor: pointer; }
+  .thumbs { display: flex; flex-shrink: 0; padding-left: 12px; }
+  .thumbs img, .thumbs .more { width: 60px; height: 60px; border-radius: 12px; object-fit: cover; border: 2px solid var(--card); margin-left: -12px; flex-shrink: 0; }
+  .thumbs .more { background: var(--soft); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--muted); }
+  .entry-main { flex: 1; min-width: 0; }
+  .entry-name { font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .entry-right { text-align: right; flex-shrink: 0; }
+  .entry-dur { font-size: 15px; font-weight: 600; }
+  .qty { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 6px; margin-top: 4px; font-weight: 500; }
 
-    .card{
-      background:#fff;
-      border-radius:18px;
-      padding:16px;
-      box-shadow:0 10px 25px rgba(0,0,0,.08);
-      cursor:pointer;
-    }
+  .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 8px; }
+  .pg { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; cursor: pointer; }
+  .pg img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+  .pg figcaption { padding: 8px 10px 10px; font-size: 13px; line-height: 1.35; }
+  .pg .when { font-size: 11px; color: var(--muted); margin-top: 4px; }
 
-    .card h2{
-      margin-top:0;
-    }
+  .toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 10px; }
+  .toolbar .label { font-size: 13px; color: var(--muted); }
+  .add-row { width: 100%; display: flex; align-items: center; gap: 10px; padding: 14px 16px; border: 1px dashed var(--line2); background: transparent; border-radius: 14px; color: var(--ink); font-size: 15px; font-weight: 500; cursor: pointer; margin-bottom: 14px; }
+  .new-row { display: flex; gap: 8px; padding: 10px; margin-bottom: 14px; align-items: center; flex-wrap: wrap; }
+  .text-input { flex: 1; min-width: 140px; font-size: 16px; padding: 10px 12px; border: 1px solid var(--line2); border-radius: 10px; background: #fff; color: var(--ink); outline: none; }
+  .text-input:focus { border-color: var(--amber); }
+  .btn-ok { background: var(--green); color: #fff; border: none; padding: 10px 14px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 14px; }
+  .btn-ghost { background: none; border: none; color: var(--red2); padding: 10px; cursor: pointer; font-weight: 500; font-size: 14px; }
+  .proj { display: flex; align-items: center; gap: 14px; padding: 14px 16px; cursor: pointer; }
+  .proj-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .proj-icon.big { width: 64px; height: 64px; }
+  .proj-main { flex: 1; min-width: 0; }
+  .proj-name { font-size: 16px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .proj-sub { font-size: 13px; color: var(--muted); margin-top: 3px; }
+  .chev { color: var(--muted); flex-shrink: 0; display: flex; }
+  .back { background: none; border: none; color: var(--muted); font-size: 14px; padding: 4px 0 12px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+  .detail-head { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+  .detail-head h1 { font-size: 26px; margin: 0; }
+  .detail-head .sub { margin: 4px 0 0; }
 
-    .view{
-      background:#fff;
-      border-radius:18px;
-      padding:18px;
-      box-shadow:0 10px 25px rgba(0,0,0,.08);
-    }
 
-    .hidden{
-      display:none;
-    }
+  .searchrow { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 0 14px; height: 48px; margin-bottom: 14px; }
+  .searchrow svg { color: var(--muted); flex-shrink: 0; }
+  .searchrow input { flex: 1; height: 100%; border: none; outline: none; background: transparent; font-size: 16px; color: var(--ink); }
+  .proj, .proj * { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+  .ctrlbar { position: fixed; left: 0; right: 0; bottom: calc(86px + env(safe-area-inset-bottom, 0px)); padding: 0 20px; z-index: 14; }
+  .ctl-row { display: flex; gap: 10px; max-width: 560px; margin: 0 auto; }
+  .ctl { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; border: none; border-radius: 14px; padding: 15px; font-size: 16px; font-weight: 600; cursor: pointer; color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.12); }
+  .ctl.start { background: var(--green); }
+  .ctl.pause { background: #E8833A; }
+  .ctl.resume { background: var(--green); }
+  .ctl.stop { background: #E10600; }
+  .bottombar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--card); border-top: 1px solid var(--line); display: flex; justify-content: space-around; padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px)); z-index: 16; }
+  .nav-item { background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 3px; color: var(--muted); font-size: 12px; cursor: pointer; min-width: 72px; padding: 4px; }
+  .nav-item.on { color: var(--ink); font-weight: 600; }
+  .nav-ico { width: 52px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+  .nav-item.on .nav-ico { background: var(--soft); }
+  .nav-item.play-item .play-ico { background: var(--amber); color: #1C1F24; width: 44px; height: 32px; }
+  .nav-item.play-item.on .play-ico { background: var(--red); color: #fff; }
 
-    .back-btn{
-      color:#007aff;
-      cursor:pointer;
-      margin-bottom:12px;
-    }
-  </style>
+  .overlay, .sheet-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.35); opacity: 0; pointer-events: none; transition: opacity .2s; }
+  .overlay { z-index: 40; }
+  .sheet-overlay { z-index: 60; }
+  .overlay.open, .sheet-overlay.open { opacity: 1; pointer-events: auto; }
+  .drawer { position: fixed; top: 0; bottom: 0; left: 0; width: 290px; max-width: 82%; background: var(--card); transform: translateX(-102%); transition: transform .25s ease; z-index: 41; padding: calc(20px + env(safe-area-inset-top, 0px)) 16px 20px; display: flex; flex-direction: column; box-shadow: 4px 0 24px rgba(0,0,0,.12); }
+  .drawer.open { transform: translateX(0); }
+  .drawer-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding: 0 4px; }
+  .drawer-head b { font-size: 16px; }
+  .drawer-item { width: 100%; text-align: left; background: none; border: none; padding: 14px 12px; border-radius: 12px; font-size: 16px; font-weight: 500; color: var(--ink); cursor: pointer; display: flex; align-items: center; gap: 12px; }
+  .drawer-item:hover { background: var(--soft); }
+  .drawer-foot { margin-top: auto; font-size: 12px; color: var(--muted); padding: 0 4px; }
+  .close-x { background: none; border: none; font-size: 26px; line-height: 1; color: var(--muted); cursor: pointer; padding: 2px 6px; }
+
+  .sheet { position: fixed; left: 0; right: 0; bottom: 0; background: var(--card); border-radius: 18px 18px 0 0; padding: 10px 16px calc(16px + env(safe-area-inset-bottom, 0px)); transform: translateY(105%); transition: transform .25s ease; z-index: 61; box-shadow: 0 -8px 30px rgba(0,0,0,.12); }
+  .sheet.open { transform: translateY(0); }
+  .grab { width: 40px; height: 5px; border-radius: 3px; background: var(--line2); margin: 0 auto 12px; }
+  .sheet-title { font-size: 14px; font-weight: 600; color: var(--muted); text-align: center; margin-bottom: 12px; }
+  .sheet-btn { width: 100%; padding: 14px; border: none; background: var(--soft); border-radius: 12px; font-size: 16px; color: var(--ink); margin-bottom: 8px; cursor: pointer; text-align: center; }
+  .sheet-btn.on { background: var(--ink); color: #fff; }
+  .text-input.full { display: block; width: 100%; min-width: 0; margin-bottom: 14px; }
+  .sheet-row { display: flex; gap: 8px; }
+  .sheet-btn.half { flex: 1; margin-bottom: 0; }
+  .sheet-btn.ok { background: var(--green); color: #fff; }
+  .swatches { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 4px 0 16px; }
+  .swatch { width: 44px; height: 44px; border-radius: 50%; border: 3px solid transparent; padding: 0; cursor: pointer; }
+  .swatch.sel { border-color: var(--ink); }
+  .badge { display: inline-block; font-size: 11px; color: var(--muted); border: 1px solid var(--line2); border-radius: 6px; padding: 0 6px; margin-left: 6px; }
+  .time-bar { width: 100%; max-width: 560px; margin: 0 auto 10px; border: 1.5px solid #000; border-radius: 12px; padding: 14px 16px; background: #fff; text-align: center; font-family: inherit; font-size: 17px; font-weight: 600; line-height: 1.2; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .kv-card { padding: 4px 16px; margin-bottom: 18px; }
+  .kv { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .kv:last-child { border-bottom: none; }
+  .kv span { color: var(--muted); flex-shrink: 0; }
+  .kv b { font-weight: 600; text-align: right; min-width: 0; overflow-wrap: anywhere; }
+  .ent-photos { display: flex; flex-direction: column; gap: 12px; margin-bottom: 18px; }
+  .ent-photo { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .ent-photo img { width: 100%; display: block; }
+  .ent-photo figcaption { padding: 10px 12px; font-size: 14px; line-height: 1.4; }
+  .draft-host { max-height: calc(100vh - 400px); min-height: 240px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .gear-btn { margin-top: 12px; align-self: flex-start; width: 44px; height: 44px; border-radius: 50%; border: none; background: var(--soft); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .pref-card { padding: 4px 16px; margin-bottom: 14px; }
+  .pref-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 4px; border-bottom: 1px solid var(--line); font-size: 16px; }
+  .switch { position: relative; width: 51px; height: 31px; border-radius: 16px; border: none; background: #E5E7EB; cursor: pointer; flex-shrink: 0; transition: background .2s; padding: 0; }
+  .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,.2); transition: transform .2s; }
+  .switch.on { background: var(--green); }
+  .switch.on::after { transform: translateX(20px); }
+  .clock { text-align: center; padding: 18px 0 10px; }
+  .clock-time { font-size: 44px; font-weight: 300; letter-spacing: 0; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .clock-status { font-size: 12px; color: var(--muted); margin-top: 6px; min-height: 16px; letter-spacing: .02em; }
+  .confirm-text { font-size: 14px; color: var(--muted); line-height: 1.45; margin: 0 4px 16px; text-align: center; }
+  .sheet-btn.danger { color: var(--red2); background: var(--card); border: 1px solid var(--line); }
+
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: none; align-items: center; justify-content: center; padding: 16px; z-index: 50; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: #FFFFFF; color: #1C1F24; border-radius: 16px; width: 100%; max-width: 440px; max-height: 90vh; overflow-y: auto; box-shadow: 0 25px 60px rgba(0,0,0,.3); }
+  .m-head { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; border-bottom: 1px solid var(--line); }
+  .m-head h3 { margin: 0; font-size: 16px; font-weight: 700; }
+  .m-close { background: none; border: none; font-size: 24px; color: var(--muted); cursor: pointer; line-height: 1; }
+  .m-body { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+  .field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 5px; }
+  .field input[type=text], .field input[type=time], .field input[type=number], .field select { width: 100%; padding: 10px 12px; border: 1px solid var(--line2); border-radius: 10px; font-size: 16px; color: var(--ink); background: #fff; outline: none; }
+  .field input[type=time] { font-family: ui-monospace, Menlo, monospace; }
+  .field input:focus, .field select:focus { border-color: var(--amber); }
+  .field input[readonly] { background: #F3F4F6; color: var(--ink); cursor: default; }
+  .new-row-m { display: flex; gap: 8px; }
+  .upload { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: 10px; border: 1px dashed var(--line2); background: none; color: var(--muted); font-size: 14px; cursor: pointer; }
+  .img-list { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .img-row { position: relative; display: flex; gap: 10px; align-items: flex-start; padding: 8px; border: 1px solid var(--line); border-radius: 12px; }
+  .img-row > img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; flex-shrink: 0; }
+  .img-desc { flex: 1; min-width: 0; min-height: 64px; font-size: 16px; padding: 8px 10px; border: 1px solid var(--line2); border-radius: 10px; color: var(--ink); resize: vertical; outline: none; }
+  .img-desc:focus { border-color: var(--amber); }
+  .img-rm { width: 24px; height: 24px; border-radius: 50%; border: none; background: var(--soft); color: var(--muted); font-size: 16px; line-height: 1; cursor: pointer; flex-shrink: 0; }
+  .m-foot { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-top: 1px solid var(--line); }
+  .del { background: none; border: none; color: var(--red2); font-size: 14px; cursor: pointer; }
+  .m-actions { display: flex; gap: 8px; align-items: center; }
+  .cancel { background: none; border: none; color: var(--red2); font-weight: 600; font-size: 14px; padding: 10px 14px; cursor: pointer; }
+  .save { background: var(--green); color: #fff; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer; }
+  .save:disabled { opacity: .5; cursor: default; }
+  .qty-wheel-wrap { position: relative; height: 44px; }
+  .qty-wheel { display: flex; box-sizing: border-box; height: 44px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; border: 1px solid var(--line2); border-radius: 10px; background: #fff; scrollbar-width: none; overscroll-behavior: contain; padding: 0 calc(50% - 28px); }
+  .qty-wheel::-webkit-scrollbar { display: none; }
+  .qty-wheel .qi { flex: 0 0 56px; height: 42px; line-height: 42px; text-align: center; scroll-snap-align: center; font-size: 16px; font-weight: 600; color: var(--muted); font-family: ui-monospace, Menlo, monospace; }
+  .qty-wheel .qi.on { color: var(--ink); }
+  .qty-lens { position: absolute; top: 0; bottom: 0; left: calc(50% - 28px); width: 56px; background: rgba(28,31,36,.04); border-left: 1px solid var(--line2); border-right: 1px solid var(--line2); border-radius: 4px; pointer-events: auto; cursor: text; }
+  input[type=file] { display: none; }
+  /* ---- Stil: weiß mit schwarzen Linien ---- */
+  :root { --bg: #FFFFFF; --card: #FFFFFF; --line: #E5E5EA; --line2: #C7C7CC; --ink: #000000; --muted: #8E8E93; --soft: #F2F2F7; }
+  h1 { font-size: 28px; font-weight: 600; letter-spacing: -.02em; }
+  .sec h2 { font-weight: 600; }
+  .bottombar { position: fixed; left: 0; right: 0; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); background: transparent; border: none; box-shadow: none; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 0 16px; z-index: 16; pointer-events: none; }
+  .pill { pointer-events: auto; display: flex; align-items: center; gap: 4px; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px; box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+  .nav-item { min-width: 64px; padding: 6px 12px; border-radius: 999px; color: #000; font-size: 11px; font-weight: 500; gap: 3px; }
+  .nav-item.on { background: var(--soft); font-weight: 600; }
+  .nav-ico { width: auto; height: auto; background: transparent !important; }
+  .nav-item.on .nav-ico { background: transparent !important; }
+  .actions { pointer-events: auto; display: flex; gap: 8px; flex-shrink: 0; align-items: center; }
+  .actions:empty { display: none; }
+  .ctrlbar { position: fixed; left: 16px; right: 16px; bottom: calc(92px + env(safe-area-inset-bottom, 0px)); padding: 0; z-index: 14; pointer-events: none; }
+  .time-bar { pointer-events: auto; max-width: none; margin: 0; border-radius: 14px; border: 1.5px solid #000; font-size: 17px; font-weight: 600; }
+  .ctl { flex: none; height: 52px; padding: 0 22px; border-radius: 999px; font-size: 15px; font-weight: 600; box-shadow: 0 6px 18px rgba(0,0,0,.12); gap: 8px; }
+  .ctl.start { background: var(--green); }
+  .ctl.pause { background: #E8833A; }
+  .ctl.resume { background: var(--green); }
+  .ctl.stop { background: #E10600; }
+  .app { padding-bottom: 210px; }
+  .bottombar { gap: 6px; padding: 0 12px; }
+  .nav-item { min-width: 52px; padding: 6px 8px; }
+  .pill { padding: 5px; }
+  .actions { gap: 6px; min-width: 0; }
+  .ctl { height: 46px; padding: 0 16px; font-size: 14px; gap: 6px; }
+  .ctl.save { background: var(--green); }
+  .ctl.del { background: #E10600; }
+  .draft-host > .top-time { margin: 16px 16px 4px; }
+  #qtyInput.qty-edit { position: absolute; top: 0; left: calc(50% - 28px); width: 56px; height: 44px; padding: 0; text-align: center; font-size: 16px; font-weight: 600; border: 1.5px solid #000; border-radius: 10px; background: #fff; color: #000; z-index: 3; outline: none; }
+  /* ---- Leisten gleich hoch, Knöpfe gleich groß, Schrift weiß ---- */
+  .pill { height: 64px; box-sizing: border-box; padding: 5px; align-items: center; }
+  .nav-item { height: 52px; min-width: 48px; padding: 0 8px; justify-content: center; box-sizing: border-box; }
+  .actions { height: 64px; box-sizing: border-box; padding: 5px; align-items: center; }
+  .ctl { height: 52px; min-width: 100px; padding: 0 14px; font-size: 15px; font-weight: 600; color: #fff; justify-content: center; box-sizing: border-box; margin: 0; }
+  .ctl.start, .ctl.resume, .ctl.save { background: var(--green); }
+  .ctl.pause { background: #E8833A; }
+  .ctl.stop, .ctl.del { background: #E10600; }
+  input:focus, textarea:focus, select:focus { border-color: #000 !important; }
+  .viewer { position: fixed; inset: 0; background: #000; display: none; align-items: center; justify-content: center; z-index: 80; padding: 16px; }
+  .viewer.open { display: flex; }
+  .viewer img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; }
+  .ent-cover { width: 64px; height: 64px; border-radius: 14px; object-fit: cover; flex-shrink: 0; cursor: zoom-in; }
+  .ent-head { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  .ent-photo img { cursor: zoom-in; }
+  .kv-tap { cursor: pointer; }
+  .kv-tap b { color: #000; }
+  .wheel-card { padding: 14px 16px; margin-bottom: 18px; }
+  .wheel-label { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+  .proj-icon.has-img { overflow: hidden; padding: 0; }
+  .proj-icon.has-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pick-head { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin: 12px 4px 6px; }
+  .seg { display: inline-flex; background: var(--soft); border-radius: 10px; padding: 3px; margin: 0 0 12px; }
+  .seg-btn { border: none; background: transparent; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; color: var(--muted); cursor: pointer; }
+  .seg-btn.on { background: #fff; color: #000; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .ent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 18px; }
+  .ent-tile { margin: 0; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: var(--soft); }
+  .ent-tile img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+  .file-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+  .file-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; cursor: pointer; }
+  .file-ico { width: 40px; height: 40px; border-radius: 10px; background: var(--soft); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .file-thumb { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+  .file-main { flex: 1; min-width: 0; }
+  .file-name { font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .file-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .sheet { max-height: 84vh; overflow-y: auto; }
+  .kw-pad { padding: 10px 16px; }
+  .kw-inline { display: block; font-size: 12px; margin-top: 2px; }
+  .kw-add { display: flex; gap: 8px; margin-bottom: 14px; }
+  .kw-add .text-input { flex: 1; min-width: 0; }
+  .kw-tap { flex: 1; text-align: left; background: none; border: none; font-size: 15px; cursor: pointer; padding: 8px 0; color: #000; }
+  .kw-meta { color: var(--muted); font-size: 13px; }
+  .kw-del { background: none; border: none; color: #E10600; font-size: 14px; cursor: pointer; padding: 8px 0; }
+  .kw-l { display: block; font-size: 12px; color: var(--muted); margin: 10px 0 4px; }
+  .param-card { padding: 14px 16px; margin: 12px 0 0; }
+  #paramArea { margin-bottom: 12px; }
+</style>
 </head>
-
 <body>
-
 <div class="app">
+  <header class="topbar">
+    <button class="icon-btn" data-act="menu" aria-label="Menü">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+    <div class="topbar-brand">Zeitprotokoll</div>
+    <div class="sbox" id="sbox">
+      <input type="search" id="gSearch" placeholder="Suchen …" autocomplete="off" enterkeyhint="search" />
+      <button class="s-btn" id="searchToggle" data-act="search-toggle" aria-label="Suchen">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.5" y2="16.5"/></svg>
+      </button>
+    </div>
+  </header>
+  <main id="main"></main>
+</div>
 
-  <div class="header">
-    <h1>Projekt-Tool</h1>
-    <p>Kalender, Zeiten, Projekte & Kalkulation</p>
+
+<div class="ctrlbar" id="ctrlbar"></div>
+<nav class="bottombar" id="bottombar"></nav>
+
+<input type="file" id="camInput" accept="image/*" capture="environment" />
+<input type="file" id="libInput" accept="image/*" />
+<div class="viewer" id="viewer" data-act="viewer-close"><img id="viewerImg" alt=""></div>
+<div class="overlay" id="drawerOverlay" data-act="drawer-close"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <b>Menü</b>
+    <button class="close-x" data-act="drawer-close" aria-label="Schließen">&times;</button>
   </div>
+  <button class="drawer-item" data-act="nav" data-view="timer">Zeiterfassung</button>
+  <button class="drawer-item" data-act="nav" data-view="projects">Projekte</button>
+  <button class="drawer-item" data-act="nav" data-view="params">Parameter</button>
+  <button class="drawer-item" data-act="new-project">+ Neues Projekt</button>
+  <div class="drawer-foot">Daten bleiben lokal auf diesem Gerät</div>
+  <button class="gear-btn" data-act="settings-open" aria-label="Einstellungen"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+</aside>
 
-  <div id="homeView">
+<div class="sheet-overlay" id="sheetOverlay" data-act="sheet-close"></div>
+<div class="sheet" id="sheet"></div>
 
-    <div class="grid">
-
-      <div class="card" onclick="openView('calendarView')">
-        <h2>Kalender & Projekte</h2>
-        <p>Termine eintragen und verwalten.</p>
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="m-head">
+      <h3 id="modalTitle">Zeit erfassen</h3>
+      <button class="m-close" data-act="modal-close" aria-label="Schließen">&times;</button>
+    </div>
+    <div class="m-body">
+      <div class="field"><label for="durationInput">Dauer</label><input type="time" step="1" id="durationInput" /></div>
+      <div class="field" data-f="name"><label for="nameInput">Name</label><input type="text" id="nameInput" placeholder="Was hast du gemacht?" autocomplete="off" /></div>
+      <div id="paramArea"></div>
+      <div class="field" data-f="qty">
+        <label>Stückzahl</label>
+        <div class="qty-wheel-wrap"><div class="qty-wheel" id="qtyWheel"></div><div class="qty-lens" data-act="qty-edit"></div></div>
+        <input type="number" id="qtyInput" inputmode="numeric" min="0" max="1000" step="1" value="1" hidden />
       </div>
-
-      <div class="card" onclick="openView('timeTrackerView')">
-        <h2>Zeit-Stopper & Bilder</h2>
-        <p>Zeiten erfassen und dokumentieren.</p>
+      <div class="field" data-f="project"><label>Projekt</label><div id="projectFieldArea"></div></div>
+      <div class="field" data-f="group"><label>Baugruppe</label><div id="groupFieldArea"></div></div>
+      <div class="field" data-f="images">
+        <label>Bilder</label>
+        <button class="upload" data-act="upload">+ Bilder hinzufügen</button>
+        <input type="file" id="fileInput" accept="image/*" multiple />
+        <div class="img-list" id="imgGrid"></div>
       </div>
-
-      <div class="card" onclick="openView('summaryView')">
-        <h2>Kalkulation & Übersicht</h2>
-        <p>Auswertungen und Gesamtzeiten.</p>
+    </div>
+    <div class="m-foot">
+      <div id="deleteArea"></div>
+      <div class="m-actions">
+        <button class="cancel" data-act="modal-close">Abbrechen</button>
+        <button class="save" id="saveBtn" data-act="save">Fertig</button>
       </div>
-
-      <div class="card" onclick="openView('quickStepsView')">
-        <h2>Schnell-Arbeitszeiten</h2>
-        <p>Zeiten per Fingertipp übernehmen.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-  <div id="calendarView" class="hidden">
-    <div class="view">
-      <div class="back-btn" onclick="goHome()">← Zurück</div>
-      <h2>Kalender & Projekte</h2>
-      <p>Ansicht funktioniert.</p>
     </div>
   </div>
-
-  <div id="timeTrackerView" class="hidden">
-    <div class="view">
-      <div class="back-btn" onclick="goHome()">← Zurück</div>
-      <h2>Zeit-Stopper & Bilder</h2>
-      <p>Ansicht funktioniert.</p>
-    </div>
-  </div>
-
-  <div id="summaryView" class="hidden">
-    <div class="view">
-      <div class="back-btn" onclick="goHome()">← Zurück</div>
-      <h2>Kalkulation & Übersicht</h2>
-      <p>Ansicht funktioniert.</p>
-    </div>
-  </div>
-
-  <div id="quickStepsView" class="hidden">
-    <div class="view">
-      <div class="back-btn" onclick="goHome()">← Zurück</div>
-      <h2>Schnell-Arbeitszeiten</h2>
-      <p>Ansicht funktioniert.</p>
-    </div>
-  </div>
-
 </div>
 
 <script>
-function openView(id){
+(function () {
+  "use strict";
 
-  document.getElementById('homeView').classList.add('hidden');
+  var K_ENT = "zeit_entries", K_PRJ = "zeit_projects", K_GRP = "zeit_groups", K_RUN = "zeit_running", K_IMG = "zeit_images_", K_SORT = "zeit_sort";
 
-  ['calendarView','timeTrackerView','summaryView','quickStepsView']
-    .forEach(view=>{
-      document.getElementById(view).classList.add('hidden');
+  var PAL = [
+    { bg: "#FBF1DE", dot: "#C98A1E" }, { bg: "#E2F3F0", dot: "#2F9A8E" }, { bg: "#FBE7EC", dot: "#D0506E" },
+    { bg: "#E4EEF9", dot: "#3B7CC4" }, { bg: "#F3F3DC", dot: "#9AA02A" }, { bg: "#ECE6F8", dot: "#7B5BC9" },
+    { bg: "#E3F4E8", dot: "#3FA35E" }, { bg: "#FBE5E3", dot: "#E10600" }, { bg: "#ECEDF0", dot: "#6B7280" },
+    { bg: "#F3E9E1", dot: "#8B5E3C" }
+  ];
+  var SORTS = {
+    az: "Name A–Z", za: "Name Z–A",
+    new: "Zuletzt aktiv: neueste", old: "Zuletzt aktiv: älteste",
+    most: "Zeit: meiste zuerst", least: "Zeit: wenigste zuerst",
+    favs: "Favoriten zuerst", pins: "Angepinnte zuerst"
+  };
+
+  var K_PMETA = "zeit_pmeta";
+  var PMETA = load(K_PMETA, {});   // {Projektname: {pin, fav, ci}}
+  var K_PREFS = "zeit_prefs";
+  var K_COV = "zeit_cover_";
+  var NONE = "__none__";
+  var K_KW = "zeit_keywords";   // Parameter-Keywords   // Ordner „Ohne Baugruppe“ im Projekt   // Vollbild des Titelbilds je Datei
+  var prefs = load(K_PREFS, {});   // Anzeige-Schalter, Standard: alles an
+  function pref(k) { return prefs[k] !== false; }
+  var PREF_ROWS = {
+    time: [["name", "Name"], ["qty", "Stückzahl"], ["project", "Projekt"], ["group", "Baugruppe"], ["images", "Bilder"]],
+    files: [["search", "Suche (Lupe)"], ["sort", "Sortierung"]]
+  };
+
+  function folderIco(color, size) {
+    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="' + color + '" stroke-width="1.8" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>';
+  }
+  var ICO_L = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>';
+  var ICO_R = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>';
+  var PLAY = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+  var STOP = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>';
+  var PAUSE = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+  var CLOCK = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>';
+
+  var NAV = [
+    { view: "projects", label: "Dateien", icon: '<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="3" width="10" height="2.4" rx="1.2" opacity=".45"/><rect x="5" y="6" width="14" height="2.4" rx="1.2" opacity=".7"/><rect x="3" y="9.5" width="18" height="11.5" rx="2.5"/></svg>' },
+    { view: "calendar", label: "Calc", icon: '<svg width="24" height="24" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="2.6" fill="currentColor"/><rect x="7.5" y="4.8" width="9" height="4" rx="1" fill="#FFFFFF"/><circle cx="8.6" cy="12.2" r="1.1" fill="#FFFFFF"/><circle cx="12" cy="12.2" r="1.1" fill="#FFFFFF"/><circle cx="15.4" cy="12.2" r="1.1" fill="#FFFFFF"/><circle cx="8.6" cy="15.2" r="1.1" fill="#FFFFFF"/><circle cx="12" cy="15.2" r="1.1" fill="#FFFFFF"/><circle cx="15.4" cy="15.2" r="1.1" fill="#FFFFFF"/><circle cx="8.6" cy="18.2" r="1.1" fill="#FFFFFF"/><circle cx="12" cy="18.2" r="1.1" fill="#FFFFFF"/><circle cx="15.4" cy="18.2" r="1.1" fill="#FFFFFF"/></svg>' },
+    { view: "timer", label: "Track", icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><line x1="12" y1="13" x2="12" y2="9"/><line x1="10" y1="3" x2="14" y2="3"/><line x1="12" y1="5" x2="12" y2="3"/></svg>' }
+  ];
+
+  function $(id) { return document.getElementById(id); }
+  function pad(n) { return String(n).padStart(2, "0"); }
+  function hms(t) {
+    var s = Math.max(0, Math.floor(t));
+    return pad(Math.floor(s / 3600)) + ":" + pad(Math.floor((s % 3600) / 60)) + ":" + pad(s % 60);
+  }
+  function genId() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function hashIdx(name) {
+    var h = 0, n = name || "";
+    for (var i = 0; i < n.length; i++) h = (h * 31 + n.charCodeAt(i)) >>> 0;
+    return h % PAL.length;
+  }
+  function colorFor(name) {
+    var m = PMETA[name];
+    if (m && m.ci != null) return PAL[m.ci];
+    return PAL[hashIdx(name)];
+  }
+  function groupColor(g) {
+    return (g.ci != null) ? PAL[g.ci] : colorFor(g.project);
+  }
+  function fmtWhen(ms) {
+    var d = new Date(ms);
+    return pad(d.getDate()) + "." + pad(d.getMonth() + 1) + "." + d.getFullYear() + " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
+  }
+  function countLabel(n, one, many) { return n + (n === 1 ? " " + one : " " + many); }
+  function load(k, f) { try { var r = localStorage.getItem(k); return r ? JSON.parse(r) : f; } catch (e) { return f; } }
+  function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { console.error(e); } }
+  function del(k) { try { localStorage.removeItem(k); } catch (e) {} }
+
+  function readFiles(list) {
+    return Promise.all(Array.prototype.map.call(list, function (f) {
+      return new Promise(function (res, rej) {
+        var r = new FileReader();
+        r.onload = function () { res(r.result); };
+        r.onerror = rej;
+        r.readAsDataURL(f);
+      });
+    }));
+  }
+  function thumb(url, max, q) {
+    max = max || 140; q = q || 0.7;
+    return new Promise(function (res) {
+      var img = new Image();
+      img.onload = function () {
+        try {
+          var sc = Math.min(1, max / Math.max(img.width, img.height));
+          var c = document.createElement("canvas");
+          c.width = Math.max(1, Math.round(img.width * sc));
+          c.height = Math.max(1, Math.round(img.height * sc));
+          c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+          res(c.toDataURL("image/jpeg", q));
+        } catch (e) { res(url); }
+      };
+      img.onerror = function () { res(url); };
+      img.src = url;
     });
-
-  document.getElementById(id).classList.remove('hidden');
-}
-
-function goHome(){
-
-  ['calendarView','timeTrackerView','summaryView','quickStepsView']
-    .forEach(view=>{
-      document.getElementById(view).classList.add('hidden');
+  }
+  // Bilder als {s: Originalbild, d: Beschreibung}; ältere Einträge (nur Strings) werden angepasst
+  function normImgs(arr) {
+    return (arr || []).map(function (x) {
+      return typeof x === "string" ? { s: x, d: "" } : { s: x.s, d: x.d || "" };
     });
+  }
+  // Fotos eines Eintrags für die Anzeige: {t: Vorschaubild, d: Beschreibung}
+  function photosOf(e) {
+    if (e.photos) return e.photos;
+    return (e.thumbs || []).map(function (t) { return { t: t, d: "" }; });
+  }
 
-  document.getElementById('homeView').classList.remove('hidden');
-}
+  // ---------- state ----------
+  var st = {
+    view: "timer",
+    detail: null,
+    group: null,
+    showNew: false,
+    showNewGroup: false,
+    query: "",
+    sort: load(K_SORT, "az"),
+    projects: load(K_PRJ, []),
+    groups: load(K_GRP, []),   // [{id, project, name, view?: "list"|"photos", ci?: Farbindex}]
+    entries: load(K_ENT, []),  // Eintrag: groupId, qty, photos
+    running: load(K_RUN, null),
+    startPrj: "",
+    modal: null,
+    imgs: [],
+    modalNew: false,
+    sheetGroup: null,
+    searchOpen: false,
+    renameTarget: null,
+    draft: null,
+    settingsPanel: null,
+    searchOpen: false,
+    entryId: null,
+    entryView: null,
+    keywords: (load(K_KW, null) || [{ word: "bohren", process: "Bohren", params: [{ label: "Bohrdurchmesser", unit: "mm", type: "range", min: 1, max: 30, step: 0.5 }] }]).map(normKw),
+    kwDraft: null,
+    kwEditId: null,
+    tmpParams: null
+  };
+  var tickId = null;
+
+  // ---------- data helpers ----------
+  function addProject(n) {
+    n = (n || "").trim();
+    if (n && st.projects.indexOf(n) < 0) { st.projects.push(n); save(K_PRJ, st.projects); }
+  }
+  function statsOf(list) {
+    var total = 0, last = 0;
+    list.forEach(function (e) {
+      total += e.duration;
+      var t = new Date(e.start).getTime();
+      if (t > last) last = t;
+    });
+    return { total: total, count: list.length, last: last, entries: list };
+  }
+  function projectStats(name) {
+    var s = statsOf(st.entries.filter(function (e) { return e.project === name; }));
+    s.name = name;
+    return s;
+  }
+  function groupsOf(project) {
+    return st.groups.filter(function (g) { return g.project === project; });
+  }
+  function groupStats(g) {
+    var s = statsOf(st.entries.filter(function (e) { return e.groupId === g.id; }));
+    s.group = g;
+    return s;
+  }
+  function sortedProjects() {
+    var q = st.query.trim().toLowerCase();
+    var list = st.projects.map(projectStats);
+    if (q) {
+      list = list.filter(function (p) {
+        return p.name.toLowerCase().indexOf(q) >= 0 ||
+          p.entries.some(function (e) { return (e.name || "").toLowerCase().indexOf(q) >= 0; });
+      });
+    }
+    function pinOf(p) { return (PMETA[p.name] && PMETA[p.name].pin) ? 1 : 0; }
+    function favOf(p) { return (PMETA[p.name] && PMETA[p.name].fav) ? 1 : 0; }
+    var az = function (a, b) { return a.name.localeCompare(b.name, "de"); };
+    var cmp = {
+      az: az,
+      za: function (a, b) { return b.name.localeCompare(a.name, "de"); },
+      new: function (a, b) { return b.last - a.last; },
+      old: function (a, b) { return a.last - b.last; },
+      most: function (a, b) { return b.total - a.total; },
+      least: function (a, b) { return a.total - b.total; },
+      favs: function (a, b) { return (favOf(b) - favOf(a)) || az(a, b); },
+      pins: function (a, b) { return (pinOf(b) - pinOf(a)) || az(a, b); }
+    }[st.sort] || az;
+    list.sort(cmp);
+    // angepinnte Projekte stehen immer oben
+    return list.filter(function (p) { return pinOf(p); })
+      .concat(list.filter(function (p) { return !pinOf(p); }));
+  }
+  function byNewest(a, b) { return new Date(b.start) - new Date(a.start); }
+  function byOldest(a, b) { return new Date(a.start) - new Date(b.start); }
+
+  // ---------- views ----------
+  function entryCard(e) {
+    var c = colorFor(e.project), th = "", ph = photosOf(e);
+    if (e.cover) {
+      th = '<div class="thumbs"><img src="' + e.cover + '" alt=""></div>';
+    } else if (ph.length) {
+      th = '<div class="thumbs">' + ph.slice(0, 3).map(function (p) { return '<img src="' + p.t + '" alt="">'; }).join("");
+      if (e.imageCount > 3) th += '<div class="more">+' + (e.imageCount - 3) + "</div>";
+      th += "</div>";
+    }
+    var qtyTxt = e.qty ? '<div class="qty">' + e.qty + (e.qty === 1 ? " Stück" : " Stk.") + "</div>" : "";
+    return '<button class="card entry" data-act="open-entry" data-id="' + esc(e.id) + '">' + th +
+      '<div class="entry-main"><div class="entry-name">' + esc(e.name) + "</div></div>" +
+      '<div class="entry-right"><div class="entry-dur mono">' + hms(e.duration) + "</div>" + qtyTxt +
+      '<span class="tag" style="background:' + c.bg + ";color:" + c.dot + '">' + esc(e.project) + "</span></div></button>";
+  }
+  function entryList(list) {
+    if (!list.length) return '<div class="empty">Noch keine Zeit erfasst. Starte den Timer, um deinen ersten Eintrag anzulegen.</div>';
+    return '<div class="list">' + list.map(entryCard).join("") + "</div>";
+  }
+  function photosHtml(entries) {
+    var items = [];
+    entries.slice().sort(byOldest).forEach(function (e) {
+      photosOf(e).forEach(function (p) { items.push({ p: p, e: e }); });
+    });
+    if (!items.length) return '<div class="empty">Noch keine Bilder in dieser Baugruppe.</div>';
+    return '<div class="photo-grid">' + items.map(function (x) {
+      return '<figure class="pg" data-act="open-entry" data-id="' + esc(x.e.id) + '"><img src="' + x.p.t + '" alt="">' +
+        "<figcaption>" + esc(x.p.d || x.e.name) + '<div class="when mono">' + fmtWhen(new Date(x.e.start).getTime()) + "</div></figcaption></figure>";
+    }).join("") + "</div>";
+  }
+
+  function timerHtml() {
+    var head = '<h1>Zeiterfassung</h1><p class="sub">Arbeitszeit mit Bildern erfassen</p>';
+    var elapsed = st.running ? elapsedOf(st.running) : (st.draft ? (st.draft.dur || 0) : 0);
+    var clock = '<div class="time-bar top-time" id="timerDisplay">' + hms(elapsed) + "</div>";
+    if (!st.draft) return head;
+    return head + '<div class="card draft-host" id="draftHost"></div>';
+  }
+
+  function projCard(p) {
+    var c = colorFor(p.name), m = PMETA[p.name] || {};
+    var when = p.last ? "Zuletzt: " + fmtWhen(p.last) : "Noch keine Zeit erfasst";
+    var badges = (m.pin ? '<span class="badge">Angepinnt</span>' : "") + (m.fav ? '<span class="badge">Favorit</span>' : "");
+    return '<button class="card proj" data-act="open-project" data-id="' + esc(p.name) + '">' +
+      iconBox("p", p.name, c.bg, c.dot, 26) +
+      '<div class="proj-main"><div class="proj-name">' + esc(p.name) + '</div><div class="proj-sub mono">' +
+      hms(p.total) + " · " + countLabel(p.count, "Eintrag", "Einträge") + "</div>" +
+      '<div class="proj-sub">' + when + badges + "</div></div>" +
+      '<span class="chev">' + ICO_R + "</span></button>";
+  }
+
+  function projRows() {
+    var list = sortedProjects();
+    return list.length
+      ? list.map(projCard).join("")
+      : '<div class="empty">' + (st.query ? "Keine Treffer für „" + esc(st.query) + "“." : "Noch keine Projekte. Lege oben ein neues an.") + "</div>";
+  }
+
+  function projectsHtml() {
+    var opts = Object.keys(SORTS).map(function (k) {
+      return '<option value="' + k + '"' + (st.sort === k ? " selected" : "") + ">" + SORTS[k] + "</option>";
+    }).join("");
+    var search = "";
+    var add = st.showNew
+      ? '<div class="card new-row"><input id="npIn" class="text-input" placeholder="Projektname" autocomplete="off">' +
+        '<button class="btn-ok" data-act="np-ok">Anlegen</button><button class="btn-ghost" data-act="np-cancel">Abbrechen</button></div>'
+      : '<button class="add-row" data-act="new-project"><span style="font-size:20px;line-height:1">+</span> Neues Projekt</button>';
+    return "<h1>Projekte</h1><p class=\"sub\">Deine Projekte auf einen Blick</p>" + search +
+      (pref("sort") ? '<div class="toolbar"><span class="label">Sortieren nach</span><select id="sortSel" class="pill-select">' + opts + "</select></div>" : "") +
+      add + '<div class="list" id="projList">' + projRows() + "</div>";
+  }
+
+  function groupCard(gs) {
+    var c = groupColor(gs.group);
+    return '<button class="card proj" data-act="open-group" data-id="' + esc(gs.group.id) + '">' +
+      iconBox("g", gs.group.id, c.bg, c.dot, 26) +
+      '<div class="proj-main"><div class="proj-name">' + esc(gs.group.name) + '</div><div class="proj-sub mono">' +
+      hms(gs.total) + " · " + countLabel(gs.count, "Arbeitsschritt", "Arbeitsschritte") + "</div></div>" +
+      '<span class="chev">' + ICO_R + "</span></button>";
+  }
+
+  function newGroupRow() {
+    return '<div class="card new-row"><input id="ngIn" class="text-input" placeholder="Name der Baugruppe" autocomplete="off">' +
+      '<button class="btn-ok" data-act="ng-ok">Anlegen</button><button class="btn-ghost" data-act="ng-cancel">Abbrechen</button></div>';
+  }
+
+  function folderSum(list) { return list.reduce(function (a, e) { return a + e.duration; }, 0); }
+  function noneCard(project, list) {
+    var c = colorFor(project);
+    return '<button class="card proj" data-act="open-group" data-id="' + NONE + ":" + esc(project) + '">' +
+      '<div class="proj-icon" style="background:' + c.bg + '">' + folderIco(c.dot, 26) + "</div>" +
+      '<div class="proj-main"><div class="proj-name">Ohne Baugruppe</div><div class="proj-sub mono">' +
+      hms(folderSum(list)) + " · " + countLabel(list.length, "Arbeitsschritt", "Arbeitsschritte") + "</div></div>" +
+      '<span class="chev">' + ICO_R + "</span></button>";
+  }
+  function projectDetailHtml(name) {
+    var p = projectStats(name), c = colorFor(name);
+    var groups = groupsOf(name).map(groupStats);
+    var noneEntries = p.entries.filter(function (e) { return !e.groupId; });
+    var addRow = st.showNewGroup
+      ? newGroupRow()
+      : '<button class="add-row" data-act="new-group"><span style="font-size:20px;line-height:1">+</span> Neue Baugruppe</button>';
+    var folders = groups.map(groupCard).join("");
+    if (noneEntries.length) folders += noneCard(name, noneEntries);
+    var empty = (!folders && !st.showNewGroup) ? '<div class="empty">Noch keine Baugruppen. Lege oben eine Baugruppe an.</div>' : "";
+    return '<button class="back" data-act="back">' + ICO_L + " Projekte</button>" +
+      '<div class="detail-head">' + iconBox("p", name, c.bg, c.dot, 30, true) +
+      "<div><h1>" + esc(name) + '</h1><p class="sub mono">Gesamt ' + hms(p.total) + " · " + countLabel(p.count, "Arbeitsschritt", "Arbeitsschritte") + "</p></div></div>" +
+      '<div class="sec"><h2>Baugruppen</h2><span>' + (groups.length + (noneEntries.length ? 1 : 0)) + "</span></div>" +
+      addRow + (folders ? '<div class="list">' + folders + "</div>" : "") + empty;
+  }
+
+  function fileList(list) {
+    if (!list.length) return '<div class="empty">Keine Arbeitsschritte in diesem Ordner.</div>';
+    var doc = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><polyline points="14 3 14 8 19 8"/></svg>';
+    return '<div class="file-list">' + list.map(function (e) {
+      var c = colorFor(e.project);
+      var sub = [hms(e.duration), e.qty ? e.qty + " Stk." : ""].filter(Boolean).join(" · ");
+      var ico = e.cover ? '<img class="file-thumb" src="' + e.cover + '" alt="">'
+        : '<span class="file-ico" style="color:' + c.dot + '">' + doc + "</span>";
+      return '<button class="card file-row" data-act="open-entry" data-id="' + esc(e.id) + '">' + ico +
+        '<div class="file-main"><div class="file-name">' + esc(e.name) + '</div><div class="file-sub mono">' + esc(sub) + "</div></div>" +
+        '<span class="chev">' + ICO_R + "</span></button>";
+    }).join("") + "</div>";
+  }
+  function groupDetailHtml(id) {
+    var g = null, project, title, entries;
+    if (id.indexOf(NONE + ":") === 0) {
+      project = id.slice(NONE.length + 1);
+      if (st.projects.indexOf(project) < 0) { st.group = null; return projectDetailHtml(st.detail); }
+      entries = st.entries.filter(function (e) { return e.project === project && !e.groupId; });
+      title = "Ohne Baugruppe";
+    } else {
+      g = st.groups.filter(function (x) { return x.id === id; })[0];
+      if (!g) { st.group = null; return projectDetailHtml(st.detail); }
+      project = g.project;
+      title = g.name;
+      entries = st.entries.filter(function (e) { return e.groupId === g.id; });
+    }
+    var sum = statsOf(entries), c = g ? groupColor(g) : colorFor(project);
+    var icon = g ? iconBox("g", g.id, c.bg, c.dot, 30, true)
+      : '<div class="proj-icon big" style="background:' + c.bg + '">' + folderIco(c.dot, 30) + "</div>";
+    var head = '<button class="back" data-act="back">' + ICO_L + " " + esc(project) + "</button>" +
+      '<div class="detail-head">' + icon +
+      "<div><h1" + (g ? ' class="gh"' : "") + ">" + esc(title) + '</h1><p class="sub mono">Gesamt ' + hms(sum.total) + " · " +
+      countLabel(sum.count, "Arbeitsschritt", "Arbeitsschritte") + "</p></div></div>";
+    var hint = g ? '<p class="hint">Überschrift lange drücken für Einstellungen</p>' : "";
+    var body = (g && g.view === "photos") ? photosHtml(entries)
+      : '<div class="sec"><h2>Arbeitsschritte</h2><span>' + entries.length + "</span></div>" + fileList(entries.slice().sort(byNewest));
+    return head + hint + body;
+  }
+
+  function renderMain() {
+    ensureDraft();
+    var html;
+    if (st.searchOpen && st.query.trim()) html = searchHtml();
+    else if (st.entryId && st.view === st.entryView) html = entryHtml(st.entryId);
+    else if (st.view === "params") html = paramsHtml();
+    else if (st.view === "settings") html = settingsHtml();
+    else if (st.view === "calendar") html = "";
+    else if (st.view === "timer") html = timerHtml();
+    else if (st.detail && st.group) html = groupDetailHtml(st.group);
+    else if (st.detail) html = projectDetailHtml(st.detail);
+    else html = projectsHtml();
+    parkDraft();
+    $("main").innerHTML = html;
+    initEntryWheel();
+    if (inlineActive()) {
+      var host = $("draftHost");
+      if (host) {
+        host.appendChild(M_BODY);
+        host.appendChild(M_FOOT);
+        M_FOOT.style.display = "none";
+        applyFieldPrefs();
+        $("saveBtn").disabled = !!st.running || !(st.draft.dur > 0);
+        var dd = host.querySelector('[data-act="draft-delete"]');
+        if (dd) dd.disabled = !!st.running;
+      }
+    }
+    // Track ist auf der Zeitseite ausgeblendet, dort rutschen die Start-Knöpfe an seine Stelle
+    $("bottombar").innerHTML = '<div class="pill">' + NAV.filter(function (n) {
+      return !(n.view === "timer" && st.view === "timer");
+    }).map(function (n) {
+      var on = st.view === n.view;
+      return '<button class="nav-item' + (on ? " on" : "") + '" data-act="nav" data-view="' + n.view + '"><span class="nav-ico">' + n.icon + "</span><span>" + n.label + "</span></button>";
+    }).join("") + '</div><div class="pill actions" id="actions"></div>';
+    renderCtrl();
+    syncTopbar();
+    if (st.showNew) { var i = $("npIn"); if (i) i.focus(); }
+    if (st.showNewGroup) { var g = $("ngIn"); if (g) g.focus(); }
+  }
+
+  // ---------- Neue Baugruppe aus dem Fenster „Zeit erfassen“ ----------
+  function openNewGroupSheet() {
+    $("sheet").innerHTML =
+      '<div class="grab"></div>' +
+      '<div class="sheet-title">Neue Baugruppe</div>' +
+      '<input type="text" id="ngmIn" class="text-input full" placeholder="Name der Baugruppe" autocomplete="off">' +
+      '<div class="sheet-row">' +
+        '<button class="sheet-btn half" data-act="ngm-cancel">Abbrechen</button>' +
+        '<button class="sheet-btn half ok" data-act="ngm-ok">Bestätigen</button>' +
+      "</div>";
+    $("sheetOverlay").classList.add("open");
+    $("sheet").classList.add("open");
+    var inp = $("ngmIn");
+    if (inp) inp.focus();
+  }
+
+  // ---------- Titelbild (Datei, Projekt, Baugruppe) ----------
+  function coverFullKey(kind, id) { return kind === "e" ? K_COV + id : K_COV + kind + ":" + id; }
+  function coverGet(kind, id) {
+    if (kind === "p") return (PMETA[id] && PMETA[id].cover) || null;
+    if (kind === "g") { var g = st.groups.filter(function (x) { return x.id === id; })[0]; return (g && g.cover) || null; }
+    var e = st.entries.filter(function (x) { return x.id === id; })[0];
+    return (e && e.cover) || null;
+  }
+  function coverSet(kind, id, th, full) {
+    save(coverFullKey(kind, id), full);
+    if (kind === "p") { PMETA[id] = Object.assign({}, PMETA[id] || {}, { cover: th }); save(K_PMETA, PMETA); }
+    else if (kind === "g") { st.groups = st.groups.map(function (g) { return g.id === id ? Object.assign({}, g, { cover: th }) : g; }); save(K_GRP, st.groups); }
+    else { st.entries = st.entries.map(function (e) { return e.id === id ? Object.assign({}, e, { cover: th }) : e; }); save(K_ENT, st.entries); }
+  }
+  function coverRemove(kind, id) {
+    del(coverFullKey(kind, id));
+    if (kind === "p") { if (PMETA[id]) { delete PMETA[id].cover; save(K_PMETA, PMETA); } }
+    else if (kind === "g") {
+      st.groups = st.groups.map(function (g) { if (g.id !== id) return g; var c = Object.assign({}, g); delete c.cover; return c; });
+      save(K_GRP, st.groups);
+    } else {
+      st.entries = st.entries.map(function (e) { if (e.id !== id) return e; var c = Object.assign({}, e); delete c.cover; return c; });
+      save(K_ENT, st.entries);
+    }
+  }
+  function openCoverSheet(kind, id) {
+    st.coverFor = { kind: kind, id: id };
+    var has = !!coverGet(kind, id);
+    $("sheet").innerHTML =
+      '<div class="grab"></div><div class="sheet-title">Titelbild</div>' +
+      '<button class="sheet-btn" data-act="cover-cam">Foto aufnehmen</button>' +
+      '<button class="sheet-btn" data-act="cover-lib">Aus Galerie wählen</button>' +
+      (has ? '<button class="sheet-btn danger" data-act="cover-remove" data-kind="' + kind + '" data-id="' + esc(id) + '">Bild entfernen</button>' : "") +
+      '<button class="sheet-btn" data-act="sheet-close">Abbrechen</button>';
+    $("sheetOverlay").classList.add("open");
+    $("sheet").classList.add("open");
+  }
+  function iconBox(kind, id, bg, dot, size, big) {
+    var cv = coverGet(kind, id);
+    var cls = "proj-icon" + (big ? " big" : "") + (cv ? " has-img" : "");
+    if (cv) return '<div class="' + cls + '" style="background:' + bg + '"><img src="' + cv + '" alt="" ' + (big ? 'data-act="view-img"' : "") + "></div>";
+    return '<div class="' + cls + '" style="background:' + bg + '">' + folderIco(dot, size) + "</div>";
+  }
+  function setCover(list) {
+    var c = st.coverFor;
+    if (!c || !list || !list.length) return;
+    readFiles(list).then(function (urls) {
+      var full = urls[0];
+      return Promise.all([thumb(full, 1600, 0.8), thumb(full, 140, 0.7)]).then(function (r) {
+        coverSet(c.kind, c.id, r[1], r[0]);
+        st.coverFor = null;
+        renderMain();
+      });
+    });
+  }
+
+  // ---------- Entwurf löschen (mit Rückfrage) ----------
+  function openDraftDelConfirm() {
+    $("sheet").innerHTML =
+      '<div class="grab"></div>' +
+      '<div class="sheet-title">Wirklich löschen?</div>' +
+      '<p class="confirm-text">Die gestoppte Zeit und die Angaben werden verworfen.</p>' +
+      '<div class="sheet-row">' +
+        '<button class="sheet-btn half" data-act="dd-cancel">Abbruch</button>' +
+        '<button class="sheet-btn half danger" data-act="dd-ok">Bestätigen</button>' +
+      "</div>";
+    $("sheetOverlay").classList.add("open");
+    $("sheet").classList.add("open");
+  }
+
+  // ---------- Einstellungen-Fenster des Projekts ----------
+  function openProjSheet(name) {
+    st.sheetGroup = null;
+    var id = esc(name), m = PMETA[name] || {};
+    $("sheet").innerHTML =
+      '<div class="grab"></div>' +
+      '<div class="sheet-title">' + id + "</div>" +
+      '<button class="sheet-btn" data-act="p-rename" data-id="' + id + '">Umbenennen</button>' +
+      '<button class="sheet-btn" data-act="p-cover" data-id="' + id + '">Titelbild ändern</button>' +
+      '<button class="sheet-btn" data-act="p-dup" data-id="' + id + '">Duplizieren</button>' +
+      '<button class="sheet-btn" data-act="p-color" data-id="' + id + '">Farbe ändern</button>' +
+      '<button class="sheet-btn" data-act="p-pin" data-id="' + id + '">' + (m.pin ? "Nicht mehr anpinnen" : "Oben anpinnen") + "</button>" +
+      '<button class="sheet-btn" data-act="p-fav" data-id="' + id + '">' + (m.fav ? "Favorit entfernen" : "Als Favorit markieren") + "</button>" +
+      '<button class="sheet-btn danger" data-act="p-del" data-id="' + id + '">Projekt löschen</button>' +
+      '<button class="sheet-btn" data-act="sheet-close">Abbrechen</button>';
+    $("sheetOverlay").classList.add("open");
+    $("sheet").classList.add("open");
+  }
+
+  function openColorSheet(name) {
+    var m = PMETA[name] || {};
+    var cur = (m.ci != null) ? m.ci : hashIdx(name);
+    var id = esc(name);
+    var sw = PAL.map(function (c, i) {
+      return '<button class="swatch' + (i === cur ? " sel" : "") + '" data-act="p-color-set" data-i="' + i + '" data-id="' + id +
+        '" style="background:' + c.dot + '" aria-label="Farbe ' + (i + 1) + '"></button>';
+    }).join("");
+    $("sheet").innerHTML =
+      '<div class="grab"></div><div class="sheet-title">Farbe wählen</div>' +
+      '<div class="swatches">' + sw + "</div>" +
+      '<button class="sheet-btn" data-act="p-menu-back" data-id="' + id + '">Zurück</button>';
+  }
+
+  // Umbenennen-Fenster für Projekte und Baugruppen
+  function openRename(kind, id) {
+    var cur = id;
+    if (kind === "group") {
+      var g = st.groups.filter(function (x) { return x.id === id; })[0];
+      cur = g ? g.name : "";
+    }
+    st.renameTarget = { kind: kind, id: id };
+    $("sheet").innerHTML =
+      '<div class="grab"></div>' +
+      '<div class="sheet-title">Umbenennen</div>' +
+      '<input type="text" id="rnIn" class="text-input full" value="' + esc(cur) + '" autocomplete="off">' +
+      '<div class="sheet-row">' +
+        '<button class="sheet-btn half" data-act="rn-cancel">Abbrechen</button>' +
+        '<button class="sheet-btn half ok" data-act="rn-ok">Bestätigen</button>' +
+      "</div>";
+    $("sheetOverlay").classList.add("open");
+    $("sheet").classList.add("open");
+    var inp = $("rnIn");
+    if (inp) { inp.focus(); inp.select(); }
+  }
+
+  function toggleFlag(name, flag) {
+    PMETA[name] = Object.assign({}, PMETA[name] || {});
+    PMETA[name][flag] = !PMETA[name][flag];
+    save(K_PMETA, PMETA);
+  }
+
+  function duplicateProject(name) {
+    var n = name + " (Kopie)", k = 2;
+    while (st.projects.indexOf(n) >= 0) { n = name + " (Kopie " + (k++) + ")"; }
+    st.projects.push(n);
+    var gmap = {};
+    st.groups.filter(function (g) { return g.project === name; }).forEach(function (g) {
+      var ng = Object.assign({}, g, { id: genId(), project: n });
+      gmap[g.id] = ng.id;
+      st.groups.push(ng);
+    });
+    st.entries.filter(function (e) { return e.project === name; }).forEach(function (e) {
+      var ne = Object.assign({}, e, { id: genId(), project: n, groupId: e.groupId ? (gmap[e.groupId] || null) : null });
+      var imgs = load(K_IMG + e.id, null);
+      if (imgs) save(K_IMG + ne.id, imgs);
+      st.entries.push(ne);
+    });
+    st.entries.sort(byOldest);
+    if (PMETA[name]) PMETA[n] = Object.assign({}, PMETA[name], { pin: false });
+    save(K_PRJ, st.projects);
+    save(K_GRP, st.groups);
+    save(K_ENT, st.entries);
+    save(K_PMETA, PMETA);
+  }
+
+  function openDelConfirm(name) {
+    var id = esc(name);
+    $("sheet").innerHTML =
+      '<div class="grab"></div>' +
+      '<div class="sheet-title">Projekt wirklich löschen?</div>' +
+      '<p class="confirm-text">„' + id + '“ wird mit allen Baugruppen und Arbeitsschritten gelöscht. Das kann nicht rückgängig gemacht werden.</p>' +
+      '<button class="sheet-btn danger" data-act="p-del-ok" data-id="' + id + '">Bestätigen</button>' +
+      '<button class="sheet-btn" data-act="p-del-back" data-id="' + id + '">Zurück</button>';
+  }
+  function renameProject(oldName, v) {
+    if (!v || v === oldName) return;
+    if (st.projects.indexOf(v) >= 0) { window.alert("Ein Projekt mit diesem Namen gibt es schon."); return; }
+    st.projects = st.projects.map(function (p) { return p === oldName ? v : p; });
+    st.entries = st.entries.map(function (e) { return e.project === oldName ? Object.assign({}, e, { project: v }) : e; });
+    st.groups = st.groups.map(function (g) { return g.project === oldName ? Object.assign({}, g, { project: v }) : g; });
+    if (st.running && st.running.project === oldName) { st.running.project = v; save(K_RUN, st.running); }
+    if (st.startPrj === oldName) st.startPrj = v;
+    if (st.detail === oldName) st.detail = v;
+    if (PMETA[oldName]) { PMETA[v] = PMETA[oldName]; delete PMETA[oldName]; save(K_PMETA, PMETA); }
+    save(K_PRJ, st.projects);
+    save(K_ENT, st.entries);
+    save(K_GRP, st.groups);
+  }
+  function deleteProject(name) {
+    st.entries.forEach(function (e) { if (e.project === name) del(K_IMG + e.id); });
+    st.entries = st.entries.filter(function (e) { return e.project !== name; });
+    st.groups = st.groups.filter(function (g) { return g.project !== name; });
+    st.projects = st.projects.filter(function (p) { return p !== name; });
+    delete PMETA[name];
+    save(K_PMETA, PMETA);
+    if (st.startPrj === name) st.startPrj = "";
+    if (st.detail === name) { st.detail = null; st.group = null; }
+    save(K_PRJ, st.projects);
+    save(K_ENT, st.entries);
+    save(K_GRP, st.groups);
+  }
+
+  // ---------- Einstellungen-Fenster der Baugruppe ----------
+  function openSheet(gid) {
+    var g = st.groups.filter(function (x) { return x.id === gid; })[0];
+    if (!g) return;
+    st.sheetGroup = gid;
+    var isList = (g.view || "list") === "list";
+    var id = esc(gid);
+    $("sheet").innerHTML =
+      '<div class="grab"></div>' +
+      '<div class="sheet-title">' + esc(g.name) + "</div>" +
+      '<button class="sheet-btn" data-act="g-rename" data-id="' + id + '">Umbenennen</button>' +
+      '<button class="sheet-btn" data-act="g-cover" data-id="' + id + '">Titelbild ändern</button>' +
+      '<button class="sheet-btn" data-act="g-color" data-id="' + id + '">Farbe ändern</button>' +
+      '<button class="sheet-btn' + (isList ? " on" : "") + '" data-act="g-view" data-view="list" data-id="' + id + '">Ansicht: Liste</button>' +
+      '<button class="sheet-btn' + (!isList ? " on" : "") + '" data-act="g-view" data-view="photos" data-id="' + id + '">Ansicht: Nur Bilder (chronologisch)</button>' +
+      '<button class="sheet-btn danger" data-act="del-group" data-id="' + id + '">Baugruppe löschen</button>' +
+      '<button class="sheet-btn" data-act="sheet-close">Abbrechen</button>';
+    $("sheetOverlay").classList.add("open");
+    $("sheet").classList.add("open");
+  }
+  function closeSheet() {
+    $("sheetOverlay").classList.remove("open");
+    $("sheet").classList.remove("open");
+    st.sheetGroup = null;
+  }
+
+  // ---------- timer ----------
+  function elapsedOf(r) {
+    var end = r.pauseStart ? new Date(r.pauseStart).getTime() : Date.now();
+    return Math.max(0, (end - new Date(r.startIso).getTime() - (r.pausedMs || 0)) / 1000);
+  }
+  function startTick() {
+    if (tickId) return;
+    tickId = setInterval(function () {
+      var d = $("timerDisplay");
+      if (d && st.running) d.textContent = hms(elapsedOf(st.running));
+      var di = $("durationInput");
+      if (di && st.running && st.modal && st.modal.isNew) di.value = hms(elapsedOf(st.running));
+    }, 1000);
+  }
+  function stopTick() { if (tickId) clearInterval(tickId); tickId = null; }
+
+  function startTimer() {
+    st.running = { project: (st.draft && st.draft.project) || st.startPrj || "", startIso: new Date().toISOString(), pausedMs: 0, pauseStart: null };
+    save(K_RUN, st.running);
+    if (st.draft) st.draft.dur = 0;
+    var di0 = $("durationInput");
+    if (di0) di0.value = "00:00:00";
+    st.view = "timer";
+    st.detail = null;
+    st.group = null;
+    startTick();
+    renderMain();
+  }
+  function togglePause() {
+    var r = st.running;
+    if (!r) return;
+    if (r.pauseStart) {
+      r.pausedMs = (r.pausedMs || 0) + (Date.now() - new Date(r.pauseStart).getTime());
+      r.pauseStart = null;
+    } else {
+      r.pauseStart = new Date().toISOString();
+    }
+    save(K_RUN, r);
+    renderMain();
+  }
+  function stopTimer() {
+    if (!st.running) return;
+    var r = st.running;
+    var d = (st.draft && st.draft.isNew) ? st.draft : newDraft();
+    d.project = d.project || r.project || "";
+    d.start = r.startIso;
+    d.end = new Date().toISOString();
+    d.dur = elapsedOf(r);
+    stopTick();
+    st.running = null;
+    del(K_RUN);
+    st.draft = d;
+    st.modal = d;
+    var diS = $("durationInput");
+    if (diS) diS.value = hms(d.dur);
+    renderMain();
+  }
+  function renderCtrl() {
+    var bar = $("ctrlbar"), act = $("actions");
+    if (st.view !== "timer") { bar.innerHTML = ""; if (act) act.innerHTML = ""; return; }
+    var r = st.running;
+    var elapsed = r ? elapsedOf(r) : (st.draft ? (st.draft.dur || 0) : 0);
+    bar.innerHTML = "";
+    if (!r && st.draft && st.draft.start && st.draft.dur > 0) {
+      act.innerHTML =
+        '<button class="ctl del" data-act="draft-delete">Löschen</button>' +
+        '<button class="ctl save" data-act="save">Speichern</button>';
+    } else if (!r) {
+      act.innerHTML = '<button class="ctl start" data-act="start">' + PLAY + " Start</button>";
+    } else {
+      var paused = !!r.pauseStart;
+      act.innerHTML =
+        '<button class="ctl ' + (paused ? "resume" : "pause") + '" data-act="pause">' + (paused ? PLAY + " Weiter" : PAUSE + " Pause") + "</button>" +
+        '<button class="ctl stop" data-act="stop">' + STOP + " Stop</button>";
+    }
+  }
+
+  // ---------- Fenster „Zeit erfassen“ ----------
+  function fillForm(e, imgs) {
+    st.modal = e;
+    st.imgs = imgs || [];
+    st.modalNew = false;
+    $("modalTitle").textContent = e.isNew ? "Zeit erfassen" : "Eintrag bearbeiten";
+    $("nameInput").value = e.name || "";
+    $("qtyInput").value = e.qty || 1;
+    var dur = $("durationInput");
+    dur.type = e.isNew ? "text" : "time";
+    dur.readOnly = !!e.isNew;
+    dur.value = hms(e.isNew ? (e.dur || 0) : (new Date(e.end) - new Date(e.start)) / 1000);
+    $("deleteArea").innerHTML = e.isNew
+      ? '<button class="del" data-act="draft-delete">Löschen</button>'
+      : '<button class="del" data-act="delete" data-id="' + esc(e.id) + '">Löschen</button>';
+    M_FOOT.querySelector(".cancel").style.display = e.isNew ? "none" : "";
+    $("saveBtn").disabled = false;
+    $("saveBtn").textContent = e.isNew ? "Speichern" : "Fertig";
+    renderProjField();
+    renderGroupField();
+    renderImgs();
+    setQty(e.qty || 1);
+    renderParamArea();
+  }
+  function openModal(e, imgs) {
+    if (e.isNew) {
+      st.draft = e;
+      fillForm(e, imgs);
+      renderMain();
+      return;
+    }
+    parkDraft();
+    fillForm(e, imgs);
+    $("modalOverlay").classList.add("open");
+  }
+  function closeModal() {
+    $("modalOverlay").classList.remove("open");
+    st.modal = null;
+    st.imgs = [];
+    st.draft = null;
+    renderMain();
+  }
+  function renderProjField() {
+    var a = $("projectFieldArea");
+    if (st.modalNew) {
+      a.innerHTML = '<div class="new-row-m"><input type="text" id="mpIn" class="text-input" placeholder="Neues Projekt" autocomplete="off"><button class="btn-ok" data-act="mp-ok">OK</button></div>';
+      var i = $("mpIn");
+      if (i) i.focus();
+    } else {
+      var cur = st.modal.project || "";
+      var opts = st.projects.map(function (p) {
+        return '<option value="' + esc(p) + '"' + (p === cur ? " selected" : "") + ">" + esc(p) + "</option>";
+      }).join("");
+      var extra = (cur && st.projects.indexOf(cur) < 0) ? '<option value="' + esc(cur) + '" selected>' + esc(cur) + "</option>" : "";
+      a.innerHTML = '<select id="pSel"><option value="" disabled' + (cur ? "" : " selected") + '>Projekt wählen …</option>' + extra + opts + '<option value="__new__">+ Neues Projekt …</option></select>';
+    }
+  }
+  function renderGroupField() {
+    var list = groupsOf(st.modal.project || "");
+    var opts = '<option value="">Ohne Baugruppe</option>' + list.map(function (g) {
+      return '<option value="' + esc(g.id) + '"' + (g.id === st.modal.groupId ? " selected" : "") + ">" + esc(g.name) + "</option>";
+    }).join("") + '<option value="__new_g__">+ Neue Baugruppe …</option>';
+    $("groupFieldArea").innerHTML = '<select id="gSel">' + opts + "</select>";
+  }
+  function renderImgs() {
+    $("imgGrid").innerHTML = st.imgs.map(function (im, i) {
+      return '<div class="img-row"><img src="' + im.s + '" alt="">' +
+        '<textarea class="img-desc" data-i="' + i + '" placeholder="Beschreibung zu diesem Bild">' + esc(im.d) + "</textarea>" +
+        '<button class="img-rm" data-act="img-remove" data-i="' + i + '" aria-label="Bild entfernen">&times;</button></div>';
+    }).join("");
+  }
+  function openEdit(id) {
+    var e = st.entries.filter(function (x) { return x.id === id; })[0];
+    if (!e) return;
+    openModal({ id: e.id, name: e.name, project: e.project, start: e.start, end: e.end, groupId: e.groupId || null, qty: e.qty || 1, isNew: false },
+      normImgs(load(K_IMG + id, [])));
+  }
+  function saveEntry() {
+    var m = st.modal;
+    if (!m) return;
+    var btn = $("saveBtn");
+    btn.disabled = true;
+    btn.textContent = "Speichert …";
+    var imgs = st.imgs.map(function (im) { return { s: im.s, d: im.d || "" }; });
+    var project = (m.project || "").trim() || "Ohne Projekt";
+    var name = $("nameInput").value.trim() || "Unbenannter Eintrag";
+    var qty = Math.max(1, parseInt($("qtyInput").value, 10) || 1);
+    var groupId = (m.groupId && st.groups.some(function (g) { return g.id === m.groupId && g.project === project; })) ? m.groupId : null;
+    Promise.all(imgs.map(function (im) { return thumb(im.s); })).then(function (ths) {
+      var meta = {
+        id: m.id, name: name, project: project, start: m.start, end: m.end,
+        duration: (m.dur != null) ? m.dur : (new Date(m.end) - new Date(m.start)) / 1000,
+        qty: qty, groupId: groupId, params: Array.isArray(m.params) ? m.params : [],
+        imageCount: imgs.length,
+        photos: ths.map(function (t, i) { return { t: t, d: imgs[i].d }; })
+      };
+      addProject(project);
+      if (m.isNew) st.entries.push(meta);
+      else st.entries = st.entries.map(function (e) { return e.id === meta.id ? meta : e; });
+      st.entries.sort(byOldest);
+      save(K_ENT, st.entries);
+      if (imgs.length) save(K_IMG + m.id, imgs); else del(K_IMG + m.id);
+      closeModal();
+      renderMain();
+    }).catch(function (err) {
+      console.error(err);
+      btn.disabled = false;
+      btn.textContent = (st.modal && st.modal.isNew) ? "Speichern" : "Fertig";
+    });
+  }
+  function delEntry(id) {
+    st.entries = st.entries.filter(function (e) { return e.id !== id; });
+    save(K_ENT, st.entries);
+    del(K_IMG + id);
+    closeModal();
+    renderMain();
+  }
+
+  function setDrawer(open) {
+    $("drawer").classList.toggle("open", open);
+    $("drawerOverlay").classList.toggle("open", open);
+  }
+
+  // ---------- Aktionen (data-act) ----------
+  var H = {
+    "menu": function () { setDrawer(true); },
+    "drawer-close": function () { setDrawer(false); },
+    "nav": function (t) {
+      st.view = t.getAttribute("data-view");
+      st.detail = null; st.group = null; st.showNew = false; st.showNewGroup = false;
+      setDrawer(false); renderMain();
+    },
+    "new-project": function () {
+      st.view = "projects"; st.detail = null; st.group = null; st.showNew = true; st.showNewGroup = false;
+      setDrawer(false); renderMain();
+    },
+    "np-cancel": function () { st.showNew = false; renderMain(); },
+    "np-ok": function () {
+      var i = $("npIn"), v = i ? i.value.trim() : "";
+      if (v) { addProject(v); st.startPrj = v; }
+      st.showNew = false;
+      renderMain();
+    },
+    "open-project": function (t, id) { st.detail = id; st.group = null; st.showNewGroup = false; renderMain(); },
+    "open-group": function (t, id) { st.group = id; st.showNewGroup = false; renderMain(); },
+    "back": function () {
+      if (st.group) { st.group = null; }
+      else { st.detail = null; st.showNewGroup = false; }
+      renderMain();
+    },
+    "new-group": function () { st.showNewGroup = true; renderMain(); },
+    "ng-cancel": function () { st.showNewGroup = false; renderMain(); },
+    "ng-ok": function () {
+      var i = $("ngIn"), v = i ? i.value.trim() : "";
+      if (v && st.detail) {
+        st.groups.push({ id: genId(), project: st.detail, name: v, view: "list" });
+        save(K_GRP, st.groups);
+      }
+      st.showNewGroup = false;
+      renderMain();
+    },
+    "sheet-close": function () { closeSheet(); if (st.modal) renderGroupField(); },
+    "draft-delete": function () { openDraftDelConfirm(); },
+    "dd-cancel": function () { closeSheet(); },
+    "dd-ok": function () {
+      closeSheet();
+      st.draft = null;
+      st.modal = null;
+      st.imgs = [];
+      renderMain();
+    },
+    "settings-open": function () {
+      st.view = "settings"; st.settingsPanel = null; st.detail = null; st.group = null;
+      st.showNew = false; st.showNewGroup = false;
+      setDrawer(false); renderMain();
+    },
+    "settings-pick": function (t, id) { st.settingsPanel = id; renderMain(); },
+    "settings-back": function () {
+      if (st.settingsPanel) { st.settingsPanel = null; }
+      else { st.view = "timer"; }
+      renderMain();
+    },
+    "pref-toggle": function (t) {
+      var key = t.getAttribute("data-key"), panel = t.getAttribute("data-id");
+      prefs[key] = !pref(key);
+      save(K_PREFS, prefs);
+      if (key === "search" && !prefs.search) { st.searchOpen = false; st.query = ""; }
+      renderMain();
+    },
+    "ngm-ok": function () {
+      var i = $("ngmIn"), v = i ? i.value.trim() : "";
+      if (!v || !st.modal) return;
+      var pr = (st.modal.project || "").trim() || "Ohne Projekt";
+      var g = { id: genId(), project: pr, name: v, view: "list" };
+      st.groups.push(g);
+      save(K_GRP, st.groups);
+      st.modal.project = pr;
+      st.modal.groupId = g.id;
+      closeSheet();
+      renderProjField();
+      renderGroupField();
+    },
+    "ngm-cancel": function () { closeSheet(); if (st.modal) renderGroupField(); },
+    "g-rename": function (t, id) { openRename("group", id); },
+    "g-color": function (t, id) {
+      var g = st.groups.filter(function (x) { return x.id === id; })[0];
+      if (g) { g.ci = ((g.ci || 0) + 1) % PAL.length; save(K_GRP, st.groups); }
+      closeSheet(); renderMain();
+    },
+    "g-view": function (t, id) {
+      var g = st.groups.filter(function (x) { return x.id === id; })[0];
+      if (g) { g.view = t.getAttribute("data-view"); save(K_GRP, st.groups); }
+      closeSheet(); renderMain();
+    },
+    "del-group": function (t, id) {
+      closeSheet();
+      if (!window.confirm("Baugruppe löschen? Die Arbeitsschritte bleiben erhalten.")) return;
+      st.groups = st.groups.filter(function (g) { return g.id !== id; });
+      st.entries = st.entries.map(function (e) { return e.groupId === id ? Object.assign({}, e, { groupId: null }) : e; });
+      save(K_GRP, st.groups);
+      save(K_ENT, st.entries);
+      st.group = null;
+      renderMain();
+    },
+    "search-toggle": function () {
+      if (st.searchOpen) { closeSearch(true); return; }
+      st.searchOpen = true;
+      syncTopbar();
+      var inp = $("gSearch");
+      if (inp) inp.focus();
+    },
+    "search-close": function () { closeSearch(true); },
+    "sr": function (t, id) {
+      var kind = t.getAttribute("data-kind");
+      if (kind === "fn") { goFn(id); return; }
+      if (kind === "entry") {
+        closeSearch(false);
+        var en = st.entries.filter(function (x) { return x.id === id; })[0];
+        st.view = "projects"; st.detail = en ? en.project : null; st.group = null;
+        st.entryId = id; st.entryView = "projects";
+        renderMain();
+        return;
+      }
+      closeSearch(false);
+      st.view = "projects";
+      if (kind === "project") { st.detail = id; st.group = null; }
+      else if (kind === "group") { st.detail = t.getAttribute("data-proj"); st.group = id; }
+      renderMain();
+    },
+    "p-rename": function (t, id) { openRename("project", id); },
+    "p-dup": function (t, id) { closeSheet(); duplicateProject(id); renderMain(); },
+    "p-cover": function (t, id) { openCoverSheet("p", id); },
+    "g-cover": function (t, id) { openCoverSheet("g", id); },
+    "p-color": function (t, id) { openColorSheet(id); },
+    "p-color-set": function (t) {
+      var name = t.getAttribute("data-id");
+      PMETA[name] = Object.assign({}, PMETA[name] || {}, { ci: parseInt(t.getAttribute("data-i"), 10) });
+      save(K_PMETA, PMETA);
+      closeSheet(); renderMain();
+    },
+    "p-menu-back": function (t, id) { openProjSheet(id); },
+    "p-pin": function (t, id) { toggleFlag(id, "pin"); closeSheet(); renderMain(); },
+    "p-fav": function (t, id) { toggleFlag(id, "fav"); closeSheet(); renderMain(); },
+    "rn-ok": function () {
+      var tg = st.renameTarget, i = $("rnIn"), v = i ? i.value.trim() : "";
+      st.renameTarget = null;
+      closeSheet();
+      if (tg && v) {
+        if (tg.kind === "project") renameProject(tg.id, v);
+        else {
+          var g = st.groups.filter(function (x) { return x.id === tg.id; })[0];
+          if (g) { g.name = v; save(K_GRP, st.groups); }
+        }
+      }
+      renderMain();
+    },
+    "rn-cancel": function () { st.renameTarget = null; closeSheet(); },
+    "p-del": function (t, id) { openDelConfirm(id); },
+    "p-del-ok": function (t, id) { closeSheet(); deleteProject(id); renderMain(); },
+    "p-del-back": function (t, id) { openProjSheet(id); },
+    "start": function () { startTimer(); },
+    "pause": function () { togglePause(); },
+    "stop": function () { stopTimer(); },
+    "start-stop": function () { if (st.running) stopTimer(); else startTimer(); },
+    "photo-view": function (t) {
+      prefs.photoView = t.getAttribute("data-val");
+      save(K_PREFS, prefs);
+      renderMain();
+    },
+    "view-img": function (t) {
+      $("viewerImg").src = t.getAttribute("src");
+      $("viewer").classList.add("open");
+    },
+    "viewer-close": function () { $("viewer").classList.remove("open"); },
+    "cover-cam": function () { closeSheet(); $("camInput").click(); },
+    "cover-lib": function () { closeSheet(); $("libInput").click(); },
+    "cover-remove": function (t, id) { coverRemove(t.getAttribute("data-kind"), id); closeSheet(); renderMain(); },
+    "pick-project": function (t, id) { openPickSheet("project", id); },
+    "pick-group": function (t, id) { openPickSheet("group", id); },
+    "set-project": function (t, id) {
+      var v = t.getAttribute("data-val");
+      st.entries = st.entries.map(function (e) {
+        if (e.id !== id) return e;
+        return Object.assign({}, e, { project: v, groupId: null });
+      });
+      save(K_ENT, st.entries);
+      st.detail = v; st.group = null;
+      closeSheet(); renderMain();
+    },
+    "set-group": function (t, id) {
+      var v = t.getAttribute("data-val") || null;
+      var proj = t.getAttribute("data-proj");
+      st.entries = st.entries.map(function (e) {
+        return e.id === id ? Object.assign({}, e, { project: proj, groupId: v }) : e;
+      });
+      save(K_ENT, st.entries);
+      st.detail = proj; st.group = v;
+      closeSheet(); renderMain();
+    },
+    "kw-new": function () {
+      st.kwEditId = null;
+      st.kwDraft = { word: "", process: "", params: [] };
+      procMenu();
+    },
+    "kw-edit": function (t, id) {
+      var k = st.keywords.filter(function (x) { return x.word === id; })[0];
+      if (!k) return;
+      st.kwEditId = id;
+      st.kwDraft = { word: k.word, process: k.process || "", params: copyParams(k.params) };
+      kwEditor();
+    },
+    "kw-del": function (t, id) {
+      st.keywords = st.keywords.filter(function (k) { return k.word !== id; });
+      save(K_KW, st.keywords);
+      renderMain();
+    },
+    "kw-pick-proc": function () { captureWord(); procMenu(); },
+    "kw-proc": function (t) {
+      captureWord();
+      var i = parseInt(t.getAttribute("data-val"), 10);
+      if (i >= 0) {
+        st.kwDraft.process = PROC_LIB[i].name;
+        st.kwDraft.params = copyParams(PROC_LIB[i].params);
+        if (!st.kwDraft.word) st.kwDraft.word = PROC_LIB[i].name.toLowerCase().split("-")[0];
+      } else {
+        st.kwDraft.process = "";
+      }
+      kwEditor();
+    },
+    "kw-back": function () { kwEditor(); },
+    "kw-par-add": function () { captureWord(); libMenu(); },
+    "kw-lib": function (t) {
+      captureWord();
+      var p = st.tmpParams[parseInt(t.getAttribute("data-val"), 10)];
+      if (p) st.kwDraft.params.push(copyParams([p])[0]);
+      kwEditor();
+    },
+    "kw-par-new": function () { captureWord(); paramEditor(-1); },
+    "kw-par-edit": function (t) { captureWord(); paramEditor(parseInt(t.getAttribute("data-val"), 10)); },
+    "kw-par-del": function (t) {
+      captureWord();
+      st.kwDraft.params.splice(parseInt(t.getAttribute("data-val"), 10), 1);
+      kwEditor();
+    },
+    "kp-type": function (t) {
+      var v = t.getAttribute("data-val");
+      $("kpType").value = v;
+      $("kpRange").style.display = v === "list" ? "none" : "";
+      $("kpList").style.display = v === "list" ? "" : "none";
+      Array.prototype.forEach.call(t.parentNode.children, function (b) { b.classList.toggle("on", b === t); });
+    },
+    "kp-save": function (t) {
+      var idx = parseInt(t.getAttribute("data-val"), 10);
+      var label = $("kpLabel").value.trim();
+      if (!label) return;
+      var unit = $("kpUnit").value.trim();
+      var rec;
+      if ($("kpType").value === "list") {
+        var opts = $("kpOpts").value.split(",").map(function (x) { return x.trim(); }).filter(Boolean);
+        if (!opts.length) return;
+        rec = { label: label, unit: unit, type: "list", options: opts };
+      } else {
+        var mn = parseFloat($("kpMin").value), mx = parseFloat($("kpMax").value), sp = parseFloat($("kpStep").value);
+        if (isNaN(mn)) mn = 0;
+        if (isNaN(mx)) mx = mn;
+        if (mx < mn) { var tmp = mn; mn = mx; mx = tmp; }
+        if (!(sp > 0)) sp = 1;
+        rec = { label: label, unit: unit, type: "range", min: mn, max: mx, step: sp };
+      }
+      if (idx >= 0) st.kwDraft.params[idx] = rec; else st.kwDraft.params.push(rec);
+      kwEditor();
+    },
+    "kw-save": function () {
+      captureWord();
+      var d = st.kwDraft;
+      if (!d || !d.word) return;
+      var clash = st.keywords.some(function (k) { return k.word.toLowerCase() === d.word.toLowerCase() && k.word !== st.kwEditId; });
+      if (clash) return;
+      var rec = { word: d.word, process: d.process || "", params: d.params };
+      if (st.kwEditId) st.keywords = st.keywords.map(function (k) { return k.word === st.kwEditId ? rec : k; });
+      else st.keywords = st.keywords.concat([rec]);
+      save(K_KW, st.keywords);
+      st.kwDraft = null; st.kwEditId = null;
+      closeSheet(); renderMain();
+    },
+    "qty-edit": function () {
+      var q = $("qtyInput");
+      q.hidden = false;
+      q.classList.add("qty-edit");
+      q.value = "";
+      q.focus();
+    },
+    "open-entry": function (t, id) { st.entryId = id; st.entryView = st.view; renderMain(); },
+    "entry-back": function () { st.entryId = null; renderMain(); },
+    "entry-edit": function (t, id) { openEdit(id); },
+    "modal-close": function () { closeModal(); },
+    "save": function () { saveEntry(); },
+    "delete": function (t, id) { delEntry(id); },
+    "upload": function () { $("fileInput").click(); },
+    "img-remove": function (t) {
+      st.imgs.splice(parseInt(t.getAttribute("data-i"), 10), 1);
+      renderImgs();
+    },
+    "mp-ok": function () {
+      var i = $("mpIn");
+      st.modal.project = i ? i.value.trim() : "";
+      st.modal.groupId = null;
+      st.modalNew = false;
+      renderProjField();
+      renderGroupField();
+    }
+  };
+
+  // Lange drücken auf die Überschrift einer Baugruppe öffnet das Einstellungen-Fenster
+  var lpTimer = null, lpFired = false;
+  document.addEventListener("pointerdown", function (ev) {
+    lpFired = false;
+    clearTimeout(lpTimer);
+    var t = ev.target;
+    var cl = function (sel) { return t.closest ? t.closest(sel) : null; };
+    var h = cl(".gh"), pc = cl('[data-act="open-project"]'), gc = cl('[data-act="open-group"]'),
+        ec = cl('[data-act="open-entry"], .ent-head'), hd = cl(".detail-head");
+    var start = null;
+    if (h && st.group) { start = function () { openSheet(st.group); }; }
+    else if (pc && !h) { var pname = pc.getAttribute("data-id"); start = function () { openProjSheet(pname); }; }
+    else if (gc && !h) { var gid = gc.getAttribute("data-id"); start = function () { openSheet(gid); }; }
+    else if (ec && !h && !pc) { var eid = ec.getAttribute("data-id") || ec.getAttribute("data-eid"); start = function () { openCoverSheet("e", eid); }; }
+    else if (cl(".detail-head .proj-icon") && !h && st.group) { var gcv = st.group; start = function () { openCoverSheet("g", gcv); }; }
+    else if (cl(".detail-head .proj-icon") && !h && st.detail) { var pcv = st.detail; start = function () { openCoverSheet("p", pcv); }; }
+    else if (hd && !h && st.group) { start = function () { openSheet(st.group); }; }
+    else if (hd && !h && st.detail) { var dname = st.detail; start = function () { openProjSheet(dname); }; }
+    if (start) lpTimer = setTimeout(function () { lpFired = true; start(); }, 500);
+  });
+  ["pointerup", "pointercancel", "pointermove"].forEach(function (type) {
+    document.addEventListener(type, function () { clearTimeout(lpTimer); });
+  });
+  document.addEventListener("contextmenu", function (ev) {
+    if (ev.target.closest && ev.target.closest(".gh, .detail-head, .proj-icon, [data-act='open-project'], [data-act='open-group'], [data-act='open-entry'], .ent-head")) ev.preventDefault();
+  });
+
+  document.addEventListener("click", function (ev) {
+    if (lpFired) { lpFired = false; return; }
+    var t = ev.target.closest ? ev.target.closest("[data-act]") : null;
+    if (!t) return;
+    var fn = H[t.getAttribute("data-act")];
+    if (fn) fn(t, t.getAttribute("data-id"));
+  });
+
+  document.addEventListener("change", function (ev) {
+    var t = ev.target;
+    if (t.id === "camInput" || t.id === "libInput") {
+      setCover(t.files);
+      t.value = "";
+      return;
+    }
+    if (t.id === "sortSel") {
+      st.sort = t.value;
+      save(K_SORT, st.sort);
+      renderMain();
+    } else if (t.id === "startSel") {
+      st.startPrj = t.value;
+    } else if (t.id === "pSel") {
+      if (!st.modal) return;
+      st.modal.groupId = null;
+      if (t.value === "__new__") { st.modal.project = ""; st.modalNew = true; renderProjField(); }
+      else st.modal.project = t.value;
+      renderGroupField();
+    } else if (t.id === "gSel") {
+      if (!st.modal) return;
+      if (t.value === "__new_g__") openNewGroupSheet();
+      else st.modal.groupId = t.value || null;
+    } else if (t.id === "durationInput") {
+      if (!st.modal || st.modal.isNew) return;
+      var p = t.value.split(":").map(Number);
+      var sec = (p[0] || 0) * 3600 + (p[1] || 0) * 60 + (p[2] || 0);
+      st.modal.end = new Date(new Date(st.modal.start).getTime() + sec * 1000).toISOString();
+    }
+  });
+
+  document.addEventListener("input", function (ev) {
+    var t = ev.target;
+    if (t.id === "nameInput") { renderParamArea(); return; }
+    if (t.id === "kwWord") return;
+    if (t.id === "gSearch") {
+      st.query = t.value;
+      renderMain();
+      return;
+    }
+    if (t.id === "searchInput") {
+      st.query = t.value;
+      var list = $("projList");
+      if (list) list.innerHTML = projRows();
+      return;
+    }
+    if (t.classList && t.classList.contains("img-desc")) {
+      var im = st.imgs[parseInt(t.getAttribute("data-i"), 10)];
+      if (im) im.d = t.value;
+    }
+  });
+
+  document.addEventListener("focusout", function (ev) {
+    if (ev.target.id !== "qtyInput") return;
+    var q = ev.target;
+    setQty(q.value);
+    q.hidden = true;
+    q.classList.remove("qty-edit");
+  });
+
+  document.addEventListener("keydown", function (ev) {
+    var id = ev.target.id;
+    if (id === "qtyInput") { if (ev.key === "Enter") ev.target.blur(); return; }
+    if (id === "kwWord") { return; }
+    if (id === "gSearch") { if (ev.key === "Escape") H["search-close"](); return; }
+    if (id === "npIn") {
+      if (ev.key === "Enter") H["np-ok"]();
+      else if (ev.key === "Escape") H["np-cancel"]();
+    } else if (id === "ngIn") {
+      if (ev.key === "Enter") H["ng-ok"]();
+      else if (ev.key === "Escape") H["ng-cancel"]();
+    } else if (id === "ngmIn") {
+      if (ev.key === "Enter") H["ngm-ok"]();
+      else if (ev.key === "Escape") H["ngm-cancel"]();
+    } else if (id === "rnIn") {
+      if (ev.key === "Enter") H["rn-ok"]();
+      else if (ev.key === "Escape") H["rn-cancel"]();
+    } else if (id === "mpIn" && ev.key === "Enter") {
+      H["mp-ok"]();
+    }
+  });
+
+  $("fileInput").addEventListener("change", function () {
+    var f = this.files;
+    if (!f || !f.length) return;
+    readFiles(f).then(function (b) {
+      st.imgs = st.imgs.concat(b.map(function (s) { return { s: s, d: "" }; }));
+      renderImgs();
+    });
+    this.value = "";
+  });
+  $("modalOverlay").addEventListener("click", function (ev) {
+    if (ev.target === this) closeModal();
+  });
+
+  // ---------- Stückzahl-Drehregler (0 bis 1000) ----------
+  function setQty(n) {
+    n = Math.max(0, Math.min(1000, parseInt(n, 10) || 0));
+    var w = $("qtyWheel");
+    if (w) {
+      w.scrollLeft = n * 56;
+      Array.prototype.forEach.call(w.children, function (c, i) { c.classList.toggle("on", i === n); });
+    }
+    $("qtyInput").value = n;
+  }
+  (function () {
+    var w = $("qtyWheel"), html = "";
+    for (var n = 0; n <= 1000; n++) html += '<div class="qi">' + n + "</div>";
+    w.innerHTML = html;
+    var raf = null;
+    w.addEventListener("scroll", function () {
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        raf = null;
+        var n = Math.max(0, Math.min(1000, Math.round(w.scrollLeft / 56)));
+        $("qtyInput").value = n;
+        Array.prototype.forEach.call(w.children, function (c, i) { c.classList.toggle("on", i === n); });
+      });
+    });
+  })();
+
+  // ---------- Wischen: Zeit <-> Projekte ----------
+  var sw = null;
+  document.addEventListener("touchstart", function (ev) {
+    if (ev.touches.length !== 1) { sw = null; return; }
+    var t = ev.target;
+    if (t.closest && t.closest("input, textarea, select, .qty-wheel, .modal-overlay.open, .sheet.open, .drawer.open, .sheet-overlay.open")) { sw = null; return; }
+    sw = { x: ev.touches[0].clientX, y: ev.touches[0].clientY, t: Date.now() };
+  }, { passive: true });
+  document.addEventListener("touchend", function (ev) {
+    if (!sw) return;
+    var c = ev.changedTouches[0];
+    var dx = c.clientX - sw.x, dy = c.clientY - sw.y, dt = Date.now() - sw.t;
+    sw = null;
+    if (Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.5 || dt > 800) return;
+    if (dx > 0 && st.view === "timer") {
+      st.view = "projects"; st.detail = null; st.group = null; st.showNew = false; st.showNewGroup = false;
+      renderMain();
+    } else if (dx < 0 && st.view === "projects" && !st.detail) {
+      st.view = "timer"; st.showNew = false; st.showNewGroup = false;
+      renderMain();
+    }
+  }, { passive: true });
+
+  var M_EL = $("modalOverlay").querySelector(".modal");
+  var M_BODY = $("modalOverlay").querySelector(".m-body");
+  var M_FOOT = $("modalOverlay").querySelector(".m-foot");
+  // Fenster „Zeit erfassen“ wandert in die Zeitseite (nur bei neuen Einträgen)
+  function parkDraft() {
+    if (M_BODY.parentNode !== M_EL) {
+      M_EL.appendChild(M_BODY);
+      M_EL.appendChild(M_FOOT);
+      M_FOOT.style.display = "";
+      M_BODY.querySelectorAll("[data-f]").forEach(function (el) { el.style.display = ""; });
+    }
+  }
+  function applyFieldPrefs() {
+    M_BODY.querySelectorAll("[data-f]").forEach(function (el) {
+      el.style.display = pref(el.getAttribute("data-f")) ? "" : "none";
+    });
+  }
+  function settingsHtml() {
+    if (!st.settingsPanel) {
+      return '<button class="back" data-act="settings-back">' + ICO_L + " Zeiterfassung</button>" +
+        "<h1>Einstellungen</h1><p class=\"sub\">Was auf den Seiten angezeigt wird</p>" +
+        '<div class="list">' +
+          '<button class="card proj" data-act="settings-pick" data-id="files"><div class="proj-main"><div class="proj-name">Dateien</div><div class="proj-sub">Suche und Sortierung</div></div><span class="chev">' + ICO_R + "</span></button>" +
+          '<button class="card proj" data-act="settings-pick" data-id="time"><div class="proj-main"><div class="proj-name">Zeiterfassung</div><div class="proj-sub">Eingabefelder</div></div><span class="chev">' + ICO_R + "</span></button>" +
+        "</div>";
+    }
+    var panel = st.settingsPanel;
+    if (panel === "params") return paramsHtml();
+    var title = panel === "time" ? "Zeiterfassung" : "Dateien";
+    var rows = PREF_ROWS[panel].map(function (r) {
+      return '<div class="pref-row"><span>' + r[1] + '</span><button class="switch' + (pref(r[0]) ? " on" : "") +
+        '" role="switch" aria-checked="' + pref(r[0]) + '" data-act="pref-toggle" data-key="' + r[0] +
+        '" data-id="' + panel + '"></button></div>';
+    }).join("");
+    return '<button class="back" data-act="settings-back">' + ICO_L + " Einstellungen</button>" +
+      "<h1>" + title + '</h1><p class="sub">Wähle, was angezeigt wird</p>' +
+      '<div class="card pref-card">' + rows + "</div>";
+  }
+
+  // ---------- Kalender: Zeiten nach Tagen ----------
+  function calendarHtml() {
+    var byDay = {};
+    st.entries.slice().sort(byNewest).forEach(function (e) {
+      var d = new Date(e.start);
+      var key = d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+      (byDay[key] = byDay[key] || []).push(e);
+    });
+    var keys = Object.keys(byDay).sort().reverse();
+    var head = "<h1>Kalender</h1><p class=\"sub\">Deine Zeiten nach Tagen</p>";
+    if (!keys.length) return head + '<div class="empty">Noch keine Einträge.</div>';
+    return head + keys.map(function (k) {
+      var list = byDay[k];
+      var total = list.reduce(function (a, e) { return a + e.duration; }, 0);
+      var label = new Date(list[0].start).toLocaleDateString("de-DE", { weekday: "long", day: "2-digit", month: "long" });
+      return '<div class="sec"><h2>' + esc(label) + '</h2><span class="mono">' + hms(total) + "</span></div>" + entryList(list);
+    }).join("");
+  }
+
+  // ---------- Seite eines Arbeitsschritts ----------
+  function entryHtml(id) {
+    var e = st.entries.filter(function (x) { return x.id === id; })[0];
+    if (!e) { st.entryId = null; return projectsHtml(); }
+    var c = colorFor(e.project);
+    var g = e.groupId ? groupName(e.groupId) : "";
+    var imgs = normImgs(load(K_IMG + id, []));
+    if (!imgs.length) imgs = photosOf(e).map(function (p) { return { s: p.t, d: p.d || "" }; });
+    var pv = prefs.photoView === "grid" ? "grid" : "list";
+    var seg = '<div class="seg"><button class="seg-btn' + (pv === "list" ? " on" : "") + '" data-act="photo-view" data-val="list">Liste</button>' +
+      '<button class="seg-btn' + (pv === "grid" ? " on" : "") + '" data-act="photo-view" data-val="grid">Raster</button></div>';
+    var photos = "";
+    if (!imgs.length) {
+      photos = '<div class="empty">Keine Bilder</div>';
+    } else if (pv === "grid") {
+      photos = seg + '<div class="ent-grid">' + imgs.map(function (im) {
+        return '<figure class="ent-tile"><img src="' + im.s + '" alt="" data-act="view-img"></figure>';
+      }).join("") + "</div>";
+    } else {
+      photos = seg + '<div class="ent-photos">' + imgs.map(function (im) {
+        return '<figure class="ent-photo"><img src="' + im.s + '" alt="" data-act="view-img"><figcaption>' +
+          esc(im.d || "Ohne Beschreibung") + "</figcaption></figure>";
+      }).join("") + "</div>";
+    }
+    var rows = '<div class="kv"><span>Dauer</span><b class="mono">' + hms(e.duration) + "</b></div>" +
+      '<div class="kv kv-tap" data-act="pick-project" data-id="' + esc(id) + '"><span>Projekt</span><b>' + esc(e.project) + " ›</b></div>" +
+      '<div class="kv kv-tap" data-act="pick-group" data-id="' + esc(id) + '"><span>Baugruppe</span><b>' + esc(g || "Ohne Baugruppe") + " ›</b></div>" +
+      '<div class="kv"><span>Stückzahl</span><b>' + String(e.qty || 1) + "</b></div>" + paramRows(e);
+    var coverFull = load(K_COV + id, null) || e.cover;
+    var headIco = coverFull
+      ? '<img class="ent-cover" src="' + coverFull + '" data-act="view-img" alt="">'
+      : '<div class="proj-icon big" style="background:' + c.bg + '">' + folderIco(c.dot, 30) + "</div>";
+    return '<button class="back" data-act="entry-back">' + ICO_L + " Zurück</button>" +
+      '<div class="detail-head ent-head" data-eid="' + esc(id) + '">' + headIco +
+      "<div><h1>" + esc(e.name) + '</h1><p class="sub">' + esc(e.project) + (g ? " · " + esc(g) : "") + "</p></div></div>" +
+      '<div class="sec"><h2>Details</h2></div>' +
+      '<div class="card kv-card">' + rows + "</div>" +
+
+      '<div class="sec"><h2>Bilder</h2><span>' + imgs.length + "</span></div>" + photos +
+      '<button class="add-row" data-act="entry-edit" data-id="' + esc(id) + '">Bearbeiten</button>';
+  }
+
+  // ---------- Globale Suche ----------
+  var FUNCS = [
+    { key: "timer", title: "Zeiterfassung", sub: "Timer starten, pausieren, stoppen", kw: "zeit time timer uhr stoppen start pause erfassen" },
+    { key: "projects", title: "Dateien", sub: "Projekte und Baugruppen", kw: "dateien projekte ordner baugruppen liste" },
+    { key: "new", title: "Neues Projekt", sub: "Projekt anlegen", kw: "neu anlegen projekt hinzufügen" },
+    { key: "settings", title: "Einstellungen", sub: "Anzeige ein- und ausblenden", kw: "einstellungen optionen schalter zahnrad" },
+    { key: "settings-files", title: "Einstellungen: Dateien", sub: "Suche und Sortierung", kw: "suche sortierung lupe dateien einstellungen" },
+    { key: "settings-time", title: "Einstellungen: Zeiterfassung", sub: "Eingabefelder ein- und ausblenden", kw: "name stückzahl projekt baugruppe bilder zeiterfassung einstellungen" }
+  ];
+  function lowerOf(x) { return String(x == null ? "" : x).toLowerCase(); }
+  function matchAll(hay, toks) {
+    return toks.every(function (t) { return hay.indexOf(t) >= 0; });
+  }
+  function groupName(id) {
+    var g = st.groups.filter(function (x) { return x.id === id; })[0];
+    return g ? g.name : "";
+  }
+  function srRow(kind, id, title, sub, extra) {
+    return '<button class="card sr" data-act="sr" data-kind="' + kind + '" data-id="' + esc(id) + '"' +
+      (extra || "") + '><div class="sr-main"><div class="sr-title">' + esc(title) +
+      '</div><div class="sr-sub">' + esc(sub) + "</div></div>" +
+      '<span class="chev">' + ICO_R + "</span></button>";
+  }
+  function searchHtml() {
+    var toks = st.query.trim().toLowerCase().split(/\s+/);
+    var fn = FUNCS.filter(function (f) { return matchAll(lowerOf(f.title + " " + f.sub + " " + f.kw), toks); });
+    var prj = st.projects.filter(function (p) { return matchAll(lowerOf(p), toks); });
+    var grp = st.groups.filter(function (g) { return matchAll(lowerOf(g.name + " " + g.project), toks); });
+    var ent = st.entries.filter(function (e) {
+      var descs = photosOf(e).map(function (x) { return x.d || ""; }).join(" ");
+      return matchAll(lowerOf([e.name, e.project, groupName(e.groupId), descs, e.qty ? e.qty + " stück" : ""].join(" ")), toks);
+    }).sort(byNewest);
+    var out = "";
+    if (fn.length) {
+      out += '<div class="sec"><h2>Funktionen</h2><span>' + fn.length + "</span></div><div class=\"list\">" +
+        fn.map(function (f) { return srRow("fn", f.key, f.title, f.sub); }).join("") + "</div>";
+    }
+    if (prj.length) {
+      out += '<div class="sec"><h2>Projekte</h2><span>' + prj.length + "</span></div><div class=\"list\">" +
+        prj.slice(0, 25).map(function (p) { return srRow("project", p, p, "Projekt"); }).join("") + "</div>";
+    }
+    if (grp.length) {
+      out += '<div class="sec"><h2>Baugruppen</h2><span>' + grp.length + "</span></div><div class=\"list\">" +
+        grp.slice(0, 25).map(function (g) {
+          return srRow("group", g.id, g.name, "Baugruppe in " + g.project, ' data-proj="' + esc(g.project) + '"');
+        }).join("") + "</div>";
+    }
+    if (ent.length) {
+      out += '<div class="sec"><h2>Arbeitsschritte</h2><span>' + ent.length + "</span></div><div class=\"list\">" +
+        ent.slice(0, 40).map(function (e) {
+          var sub = [e.project, groupName(e.groupId), hms(e.duration), e.qty ? e.qty + " Stk." : ""].filter(Boolean).join(" · ");
+          return srRow("entry", e.id, e.name, sub);
+        }).join("") + "</div>";
+    }
+    if (!out) out = '<div class="empty">Keine Treffer für „' + esc(st.query) + "“.</div>";
+    return "<h1>Suche</h1><p class=\"sub\">Dateien, Baugruppen, Arbeitsschritte und Funktionen</p>" + out;
+  }
+  function syncTopbar() {
+    var box = $("sbox");
+    if (box) box.classList.toggle("open", st.searchOpen);
+    var bar = document.querySelector(".topbar");
+    if (bar) bar.classList.toggle("searching", st.searchOpen);
+    if (box) box.style.display = pref("search") ? "" : "none";
+    if (!st.searchOpen) { var inp = $("gSearch"); if (inp && inp.value) inp.value = ""; }
+  }
+  function closeSearch(render) {
+    st.searchOpen = false;
+    st.query = "";
+    syncTopbar();
+    if (render) renderMain();
+  }
+  function goFn(key) {
+    closeSearch(false);
+    st.detail = null; st.group = null; st.showNew = false; st.showNewGroup = false;
+    if (key === "timer") { st.view = "timer"; }
+    else if (key === "projects") { st.view = "projects"; }
+    else if (key === "new") { st.view = "projects"; st.showNew = true; }
+    else if (key === "settings") { st.view = "settings"; st.settingsPanel = null; }
+    else if (key === "settings-files") { st.view = "settings"; st.settingsPanel = "files"; }
+    else if (key === "settings-time") { st.view = "settings"; st.settingsPanel = "time"; }
+    renderMain();
+  }
+
+  function newDraft() {
+    return { id: genId(), name: "", project: st.startPrj || "", start: null, end: null, dur: 0, groupId: null, qty: 1, params: [], isNew: true };
+  }
+  function ensureDraft() {
+    if (st.view === "timer" && !st.draft && !(st.modal && !st.modal.isNew)) {
+      st.draft = newDraft();
+      fillForm(st.draft, []);
+    }
+  }
+  function inlineActive() {
+    return st.view === "timer" && !!st.draft && !(st.modal && !st.modal.isNew);
+  }
+
+  // ---------- Stückzahl-Regler auf der Arbeitsschritt-Seite ----------
+  function buildWheel(w, start, onChange) {
+    var html = "";
+    for (var n = 0; n <= 1000; n++) html += '<div class="qi">' + n + "</div>";
+    w.innerHTML = html;
+    var cur = -1, raf = null;
+    function mark(n) {
+      Array.prototype.forEach.call(w.children, function (c, i) { c.classList.toggle("on", i === n); });
+    }
+    w.addEventListener("scroll", function () {
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        raf = null;
+        var n = Math.max(0, Math.min(1000, Math.round(w.scrollLeft / 56)));
+        if (n !== cur) { cur = n; mark(n); onChange(n); }
+      });
+    });
+    cur = start;
+    w.scrollLeft = start * 56;
+    mark(start);
+  }
+  function initEntryWheel() {
+    if (!(st.entryId && st.view === st.entryView)) return;
+    var w = $("entryWheel");
+    var e = st.entries.filter(function (x) { return x.id === st.entryId; })[0];
+    if (!w || !e) return;
+    var eid = e.id;
+    buildWheel(w, e.qty || 1, function (n) {
+      st.entries = st.entries.map(function (x) { return x.id === eid ? Object.assign({}, x, { qty: n }) : x; });
+      save(K_ENT, st.entries);
+    });
+  }
+
+  // ---------- Projekt oder Baugruppe zuweisen ----------
+  function openPickSheet(kind, eid) {
+    var e = st.entries.filter(function (x) { return x.id === eid; })[0];
+    if (!e) return;
+    var rows, title;
+    if (kind === "project") {
+      title = "Projekt wählen";
+      rows = st.projects.map(function (p) {
+        return '<button class="sheet-btn' + (p === e.project ? " on" : "") + '" data-act="set-project" data-id="' + esc(eid) + '" data-val="' + esc(p) + '">' + esc(p) + "</button>";
+      }).join("");
+    } else {
+      title = "Baugruppe wählen";
+      rows = '<button class="sheet-btn' + (!e.groupId ? " on" : "") + '" data-act="set-group" data-id="' + esc(eid) +
+        '" data-val="" data-proj="' + esc(e.project) + '">Ohne Baugruppe (' + esc(e.project) + ")</button>";
+      st.projects.forEach(function (p) {
+        var gl = groupsOf(p);
+        if (!gl.length) return;
+        rows += '<div class="pick-head">' + esc(p) + "</div>" + gl.map(function (g) {
+          return '<button class="sheet-btn' + (g.id === e.groupId ? " on" : "") + '" data-act="set-group" data-id="' + esc(eid) +
+            '" data-val="' + esc(g.id) + '" data-proj="' + esc(p) + '">' + esc(g.name) + "</button>";
+        }).join("");
+      });
+    }
+    $("sheet").innerHTML = '<div class="grab"></div><div class="sheet-title">' + title + "</div>" + rows +
+      '<button class="sheet-btn" data-act="sheet-close">Abbrechen</button>';
+    $("sheetOverlay").classList.add("open");
+    $("sheet").classList.add("open");
+  }
+
+  // ---------- Parameter-Bibliothek: Verfahren mit Einheiten ----------
+  function R(label, unit, min, max, step) { return { label: label, unit: unit, type: "range", min: min, max: max, step: step }; }
+  function LST(label, unit, options) { return { label: label, unit: unit, type: "list", options: options }; }
+  var PROC_LIB = [
+    { name: "MAG-Schweißen", group: "Schweißen", params: [R("Strom", "A", 50, 350, 5), R("Spannung", "V", 14, 35, 0.5), R("Drahtvorschub", "m/min", 2, 20, 0.5), LST("Drahtdurchmesser", "mm", ["0.8", "1.0", "1.2", "1.6"]), LST("Schutzgasart", "", ["Ar/CO2 82/18", "Ar/CO2 92/8", "CO2"]), R("Schutzgasmenge", "l/min", 8, 25, 1), LST("Zusatzart", "", ["G3Si1", "G4Si1", "G4Si1 Fülldraht"])] },
+    { name: "MIG-Schweißen", group: "Schweißen", params: [R("Strom", "A", 50, 350, 5), R("Spannung", "V", 14, 35, 0.5), R("Drahtvorschub", "m/min", 2, 20, 0.5), LST("Drahtdurchmesser", "mm", ["0.8", "1.0", "1.2"]), LST("Schutzgasart", "", ["Argon", "Argon/Helium"]), R("Schutzgasmenge", "l/min", 8, 25, 1), LST("Zusatzart", "", ["AlMg4,5Mn", "AlMg5", "AlSi5"])] },
+    { name: "WIG-Schweißen", group: "Schweißen", params: [R("Strom", "A", 5, 300, 1), R("Spannung", "V", 8, 25, 0.5), LST("Zusatzart", "", ["ER70S-6", "ER308L", "ER316L", "ER4043", "ER5356"]), LST("Zusatz-Durchmesser", "mm", ["1.0", "1.6", "2.4", "3.2"]), LST("Elektroden-Durchmesser", "mm", ["1.0", "1.6", "2.4", "3.2"]), LST("Gasart", "", ["Argon", "Argon/Helium", "Helium"]), R("Gasmenge", "l/min", 5, 25, 1)] },
+    { name: "E-Hand-Schweißen", group: "Schweißen", params: [R("Strom", "A", 30, 250, 5), LST("Elektrodentyp", "", ["E 7018", "E 6013", "E 6010"]), LST("Elektroden-Durchmesser", "mm", ["2.0", "2.5", "3.2", "4.0"])] },
+    { name: "Punktschweißen", group: "Schweißen", params: [R("Schweißstrom", "kA", 1, 20, 0.5), R("Schweißzeit", "ms", 10, 1000, 10), R("Elektrodenkraft", "kN", 1, 10, 0.5)] },
+    { name: "Brennschneiden", group: "Schneiden", params: [R("Schnittdicke", "mm", 3, 200, 1), R("Sauerstoffdruck", "bar", 1, 10, 0.5), LST("Brennerdüse", "", ["1", "2", "3", "4", "5"])] },
+    { name: "Plasmaschneiden", group: "Schneiden", params: [R("Strom", "A", 20, 400, 5), R("Schnittgeschwindigkeit", "mm/min", 200, 8000, 100), LST("Plasmagas", "", ["Luft", "Stickstoff", "Argon/H2"])] },
+    { name: "Bohren", group: "Spanend", params: [R("Bohrdurchmesser", "mm", 1, 30, 0.5), R("Drehzahl", "U/min", 100, 3000, 50), R("Vorschub", "mm/U", 0.02, 0.5, 0.01)] },
+    { name: "Fräsen", group: "Spanend", params: [R("Fräserdurchmesser", "mm", 2, 32, 1), R("Drehzahl", "U/min", 200, 6000, 50), R("Vorschub", "mm/min", 50, 2000, 10)] },
+    { name: "Sägen", group: "Spanend", params: [LST("Sägeblatt", "", ["HSS", "Bimetall", "Hartmetall"]), R("Schnittgeschwindigkeit", "m/min", 10, 120, 1), LST("Zahnteilung", "mm", ["1.4", "2.0", "3.0"])] },
+    { name: "Schleifen", group: "Spanend", params: [LST("Körnung", "", ["40", "60", "80", "120", "180"]), R("Drehzahl", "U/min", 1000, 6000, 100)] },
+    { name: "Biegen", group: "Umformen", params: [R("Biegewinkel", "°", 0, 180, 1), R("Biegeradius", "mm", 2, 100, 1), R("Biegekraft", "t", 10, 300, 5)] },
+    { name: "Richten", group: "Umformen", params: [R("Richtkraft", "t", 5, 200, 5)] },
+    { name: "Nieten", group: "Verbinden", params: [LST("Nietdurchmesser", "mm", ["3", "4", "5", "6", "8"]), R("Nietlänge", "mm", 5, 60, 1)] },
+    { name: "Schraubverbindung", group: "Verbinden", params: [LST("Schraubengröße", "", ["M6", "M8", "M10", "M12", "M16", "M20"]), R("Anzugsmoment", "Nm", 5, 600, 5), LST("Festigkeitsklasse", "", ["8.8", "10.9", "12.9"])] },
+    { name: "Gewindeschneiden", group: "Verbinden", params: [LST("Gewinde", "", ["M4", "M5", "M6", "M8", "M10", "M12"]), R("Drehzahl", "U/min", 20, 300, 10)] },
+    { name: "Löten", group: "Verbinden", params: [LST("Lot", "", ["Ag-Lot", "Messinglot", "Weichlot"]), R("Temperatur", "°C", 180, 900, 5)] },
+    { name: "Kleben", group: "Verbinden", params: [LST("Klebstoff", "", ["Epoxid", "PUR", "Acryl"]), R("Aushärtezeit", "min", 5, 1440, 5)] },
+    { name: "Strahlen", group: "Oberfläche", params: [LST("Strahlmittel", "", ["Korund", "Glasperlen", "Stahlgrit"]), R("Strahldruck", "bar", 2, 8, 0.5)] },
+    { name: "Beschichten", group: "Oberfläche", params: [R("Schichtdicke", "µm", 20, 300, 5), R("Trockenzeit", "min", 5, 240, 5)] },
+    { name: "Verzinken", group: "Oberfläche", params: [R("Zinkschichtdicke", "µm", 40, 200, 5)] }
+  ];
+
+  function copyParams(list) { return JSON.parse(JSON.stringify(list || [])); }
+  function normKw(k) {
+    if (k.params) return k;
+    return { word: k.word, process: "", params: [{ label: k.label || k.word, unit: k.unit || "", type: "range", min: k.min, max: k.max, step: k.step }] };
+  }
+  function paramValues(p) { return p.type === "list" ? (p.options || []).slice() : kwValues(p); }
+  function paramSummary(p) {
+    if (p.type === "list") return "Auswahl: " + (p.options || []).join(", ");
+    return p.min + "–" + p.max + (p.unit ? " " + p.unit : "") + ", Schritt " + p.step;
+  }
+  function findParam(word, label) {
+    var list = Array.isArray(st.modal.params) ? st.modal.params : [];
+    for (var i = 0; i < list.length; i++) if (list[i].word === word && list[i].label === label) return i;
+    return -1;
+  }
+  function setParam(word, p, value) {
+    if (!Array.isArray(st.modal.params)) st.modal.params = [];
+    var i = findParam(word, p.label);
+    var rec = { word: word, label: p.label, unit: p.unit || "", value: value };
+    if (i >= 0) st.modal.params[i] = rec; else st.modal.params.push(rec);
+  }
+  function renderParamArea() {
+    var area = $("paramArea");
+    if (!area) return;
+    var draftNew = !!(st.modal && st.modal.isNew);
+    var name = ($("nameInput") ? $("nameInput").value : "").toLowerCase();
+    var items = [];
+    if (draftNew) {
+      st.keywords.forEach(function (k) {
+        if (k.word && name.indexOf(k.word.toLowerCase()) >= 0) {
+          (k.params || []).forEach(function (p) { items.push({ word: k.word, p: p }); });
+        }
+      });
+    }
+    if (!items.length) { area.innerHTML = ""; return; }
+    if (!Array.isArray(st.modal.params)) st.modal.params = [];
+    area.innerHTML = items.map(function (it) {
+      return '<div class="card param-card"><div class="wheel-label">' + esc(it.p.label) + (it.p.unit ? " (" + esc(it.p.unit) + ")" : "") + "</div>" +
+        '<div class="qty-wheel-wrap"><div class="qty-wheel pw"></div><div class="qty-lens"></div></div></div>';
+    }).join("");
+    var wheels = area.querySelectorAll(".pw");
+    items.forEach(function (it, i) {
+      var vals = paramValues(it.p);
+      if (!vals.length || !wheels[i]) return;
+      var rec = st.modal.params[findParam(it.word, it.p.label)];
+      var idx = rec ? vals.indexOf(rec.value) : -1;
+      if (idx < 0) idx = 0;
+      setParam(it.word, it.p, vals[idx]);
+      buildValueWheel(wheels[i], vals, idx, function (v) { setParam(it.word, it.p, v); });
+    });
+  }
+  function paramRows(e) {
+    if (!Array.isArray(e.params)) return "";
+    return e.params.map(function (r) {
+      return '<div class="kv"><span>' + esc(r.label) + "</span><b>" + esc(r.value) + (r.unit ? " " + esc(r.unit) : "") + "</b></div>";
+    }).join("");
+  }
+
+  // Keyword-Verwaltung
+  function captureWord() {
+    var i = $("kwWord");
+    if (i && st.kwDraft) st.kwDraft.word = i.value.trim();
+  }
+  function procMenu() {
+    var rows = "", last = "";
+    PROC_LIB.forEach(function (pr, i) {
+      if (pr.group !== last) { rows += '<div class="pick-head">' + esc(pr.group) + "</div>"; last = pr.group; }
+      rows += '<button class="sheet-btn" data-act="kw-proc" data-val="' + i + '">' + esc(pr.name) + "</button>";
+    });
+    $("sheet").innerHTML = '<div class="grab"></div><div class="sheet-title">Verfahren wählen</div>' + rows +
+      '<button class="sheet-btn" data-act="kw-proc" data-val="-1">Ohne Verfahren</button>' +
+      '<button class="sheet-btn" data-act="kw-back">Zurück</button>';
+    $("sheetOverlay").classList.add("open");
+    $("sheet").classList.add("open");
+  }
+  function kwEditor() {
+    var d = st.kwDraft;
+    if (!d) return;
+    var rows = d.params.map(function (p, i) {
+      return '<div class="pref-row"><button class="kw-tap" data-act="kw-par-edit" data-val="' + i + '"><b>' + esc(p.label) +
+        '</b> <span class="kw-meta">' + esc(paramSummary(p)) + "</span></button>" +
+        '<button class="kw-del" data-act="kw-par-del" data-val="' + i + '">×</button></div>';
+    }).join("");
+    $("sheet").innerHTML =
+      '<div class="grab"></div><div class="sheet-title">' + (st.kwEditId ? "Keyword bearbeiten" : "Keyword erstellen") + "</div>" +
+      '<label class="kw-l">Keyword</label><input id="kwWord" class="text-input full" value="' + esc(d.word) + '" placeholder="z. B. wig" autocomplete="off">' +
+      '<label class="kw-l">Verfahren</label><button class="sheet-btn" data-act="kw-pick-proc">' + esc(d.process || "Verfahren wählen …") + " ›</button>" +
+      '<label class="kw-l">Parameter</label><div class="card pref-card">' + (rows || '<div class="kw-meta kw-pad">Noch keine Parameter</div>') + "</div>" +
+      '<button class="sheet-btn" data-act="kw-par-add">+ Parameter hinzufügen</button>' +
+      '<div class="sheet-row"><button class="sheet-btn half" data-act="sheet-close">Abbrechen</button>' +
+      '<button class="sheet-btn half ok" data-act="kw-save">Speichern</button></div>';
+    $("sheetOverlay").classList.add("open");
+    $("sheet").classList.add("open");
+  }
+  function paramEditor(idx) {
+    var d = st.kwDraft;
+    var p = idx >= 0 ? d.params[idx] : { label: "", unit: "", type: "range", min: 0, max: 100, step: 1, options: [] };
+    var isList = p.type === "list";
+    $("sheet").innerHTML =
+      '<div class="grab"></div><div class="sheet-title">Parameter</div>' +
+      '<label class="kw-l">Bezeichnung</label><input id="kpLabel" class="text-input full" value="' + esc(p.label) + '">' +
+      '<label class="kw-l">Einheit</label><input id="kpUnit" class="text-input full" value="' + esc(p.unit || "") + '">' +
+      '<label class="kw-l">Typ</label><div class="seg"><button class="seg-btn' + (!isList ? " on" : "") + '" data-act="kp-type" data-val="range">Bereich</button>' +
+      '<button class="seg-btn' + (isList ? " on" : "") + '" data-act="kp-type" data-val="list">Auswahl</button></div>' +
+      '<input type="hidden" id="kpType" value="' + (isList ? "list" : "range") + '">' +
+      '<div id="kpRange" style="display:' + (isList ? "none" : "") + '"><div class="sheet-row">' +
+        '<div style="flex:1"><label class="kw-l">Von</label><input id="kpMin" type="number" step="any" class="text-input full" value="' + (p.min != null ? p.min : "") + '"></div>' +
+        '<div style="flex:1"><label class="kw-l">Bis</label><input id="kpMax" type="number" step="any" class="text-input full" value="' + (p.max != null ? p.max : "") + '"></div>' +
+        '<div style="flex:1"><label class="kw-l">Schritt</label><input id="kpStep" type="number" step="any" class="text-input full" value="' + (p.step != null ? p.step : "") + '"></div>' +
+      "</div></div>" +
+      '<div id="kpList" style="display:' + (isList ? "" : "none") + '"><label class="kw-l">Auswahlwerte, durch Komma getrennt</label>' +
+        '<input id="kpOpts" class="text-input full" value="' + esc((p.options || []).join(", ")) + '"></div>' +
+      '<div class="sheet-row"><button class="sheet-btn half" data-act="kw-back">Abbrechen</button>' +
+      '<button class="sheet-btn half ok" data-act="kp-save" data-val="' + idx + '">Übernehmen</button></div>';
+  }
+  function libMenu() {
+    var seen = {}, uniq = [];
+    PROC_LIB.forEach(function (pr) {
+      pr.params.forEach(function (p) {
+        var key = p.label + "|" + p.unit;
+        if (!seen[key]) { seen[key] = true; uniq.push(p); }
+      });
+    });
+    st.tmpParams = uniq;
+    $("sheet").innerHTML = '<div class="grab"></div><div class="sheet-title">Parameter hinzufügen</div>' +
+      uniq.map(function (p, i) {
+        return '<button class="sheet-btn" data-act="kw-lib" data-val="' + i + '">' + esc(p.label) + (p.unit ? " (" + esc(p.unit) + ")" : "") +
+          '<span class="kw-meta kw-inline">' + esc(paramSummary(p)) + "</span></button>";
+      }).join("") +
+      '<button class="sheet-btn" data-act="kw-par-new">Eigener Parameter</button>' +
+      '<button class="sheet-btn" data-act="kw-back">Zurück</button>';
+  }
+  function paramsHtml() {
+    var rows = st.keywords.map(function (k) {
+      var labels = (k.params || []).map(function (p) { return p.label; }).join(", ");
+      return '<div class="pref-row"><button class="kw-tap" data-act="kw-edit" data-id="' + esc(k.word) + '"><b>' + esc(k.word) +
+        '</b> <span class="kw-meta">' + esc((k.process ? k.process + " · " : "") + labels) + "</span></button>" +
+        '<button class="kw-del" data-act="kw-del" data-id="' + esc(k.word) + '">Löschen</button></div>';
+    }).join("");
+    return "<h1>Parameter</h1><p class=\"sub\">Keywords mit Eingabefenster für Arbeitsschritte</p>" +
+      '<button class="add-row" data-act="kw-new"><span style="font-size:20px;line-height:1">+</span> Keyword erstellen</button>' +
+      (st.keywords.length ? '<div class="card pref-card">' + rows + "</div>" : '<div class="empty">Noch keine Keywords.</div>');
+  }
+
+  // ---------- Start ----------
+  renderMain();
+  if (st.running) startTick();
+})();
 </script>
-
 </body>
 </html>
