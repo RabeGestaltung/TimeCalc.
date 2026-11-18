@@ -1,65 +1,170 @@
 <!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekt-Tool</title>
 
-
-  
-  Projekt‑Tool
-  
-  
-    body {
-      margin: 0;
-      padding: 0;
-      background: #f5f5f7;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #111;
+  <style>
+    body{
+      margin:0;
+      padding:0;
+      background:#f5f5f7;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+      color:#111;
     }
 
-    .app {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 16px;
+    .app{
+      max-width:900px;
+      margin:20px auto;
+      padding:16px;
     }
 
-    .header {
-      margin-bottom: 20px;
+    .header{
+      margin-bottom:20px;
     }
 
-    .header h1 {
-      font-size: 24px;
-      margin: 0 0 4px;
+    .header h1{
+      margin:0 0 4px;
+      font-size:24px;
     }
 
-    .header p {
-      margin: 0;
-      color: #666;
-      font-size: 14px;
+    .header p{
+      margin:0;
+      color:#666;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:16px;
     }
 
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      cursor: pointer;
-      transition: transform 0.12s, box-shadow 0.12s;
+    .card{
+      background:#fff;
+      border-radius:18px;
+      padding:16px;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
+      cursor:pointer;
     }
 
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+    .card h2{
+      margin-top:0;
     }
 
-    .card h2 {
-      font-size: 18px;
-      margin: 0 0 6px;
+    .view{
+      background:#fff;
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
     }
 
-    .card p {
-      margin: 0;
+    .hidden{
+      display:none;
+    }
 
+    .back-btn{
+      color:#007aff;
+      cursor:pointer;
+      margin-bottom:12px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="header">
+    <h1>Projekt-Tool</h1>
+    <p>Kalender, Zeiten, Projekte & Kalkulation</p>
+  </div>
+
+  <div id="homeView">
+
+    <div class="grid">
+
+      <div class="card" onclick="openView('calendarView')">
+        <h2>Kalender & Projekte</h2>
+        <p>Termine eintragen und verwalten.</p>
+      </div>
+
+      <div class="card" onclick="openView('timeTrackerView')">
+        <h2>Zeit-Stopper & Bilder</h2>
+        <p>Zeiten erfassen und dokumentieren.</p>
+      </div>
+
+      <div class="card" onclick="openView('summaryView')">
+        <h2>Kalkulation & Übersicht</h2>
+        <p>Auswertungen und Gesamtzeiten.</p>
+      </div>
+
+      <div class="card" onclick="openView('quickStepsView')">
+        <h2>Schnell-Arbeitszeiten</h2>
+        <p>Zeiten per Fingertipp übernehmen.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="calendarView" class="hidden">
+    <div class="view">
+      <div class="back-btn" onclick="goHome()">← Zurück</div>
+      <h2>Kalender & Projekte</h2>
+      <p>Ansicht funktioniert.</p>
+    </div>
+  </div>
+
+  <div id="timeTrackerView" class="hidden">
+    <div class="view">
+      <div class="back-btn" onclick="goHome()">← Zurück</div>
+      <h2>Zeit-Stopper & Bilder</h2>
+      <p>Ansicht funktioniert.</p>
+    </div>
+  </div>
+
+  <div id="summaryView" class="hidden">
+    <div class="view">
+      <div class="back-btn" onclick="goHome()">← Zurück</div>
+      <h2>Kalkulation & Übersicht</h2>
+      <p>Ansicht funktioniert.</p>
+    </div>
+  </div>
+
+  <div id="quickStepsView" class="hidden">
+    <div class="view">
+      <div class="back-btn" onclick="goHome()">← Zurück</div>
+      <h2>Schnell-Arbeitszeiten</h2>
+      <p>Ansicht funktioniert.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function openView(id){
+
+  document.getElementById('homeView').classList.add('hidden');
+
+  ['calendarView','timeTrackerView','summaryView','quickStepsView']
+    .forEach(view=>{
+      document.getElementById(view).classList.add('hidden');
+    });
+
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function goHome(){
+
+  ['calendarView','timeTrackerView','summaryView','quickStepsView']
+    .forEach(view=>{
+      document.getElementById(view).classList.add('hidden');
+    });
+
+  document.getElementById('homeView').classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
